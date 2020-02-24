@@ -1,0 +1,86 @@
+
+
+.pink{
+    width: 674px;
+    height: 100px;
+    display: inline-block;
+    background-color:#F5C6D6;
+    border: 3px solid white;
+  
+    
+}
+.hot-pink{
+    width: 161px;
+    height: 100px;
+    display: inline-block;
+    background-color: #EE2E84;
+    border: 3px solid white;
+}
+
+.light-blue{
+    width: 332px;
+    height: 100px;
+    display: inline-block;
+    background-color: #85CFD8;
+    border: 3px solid white;
+
+}
+
+.neon-green{
+    width: 500px;
+    height: 100px;
+    display: inline-block;
+    background-color: #8DC63F;
+    border: 3px solid white;
+
+}
+.orange{
+    width: 164px;
+    height: 100px;
+    display: inline-block;
+    position: relative;
+    bottom: 110px;
+    left:510px;
+    background-color: #E76E34;
+    border: 3px solid white;
+}
+
+/* gets thinner as the screen gets smaller*/
+@media only screen and (max-width: 768px){
+  
+    .boxes .pink{
+        height: 44px;
+        width:674px;
+
+    }
+
+    .box-2 .hot-pink{
+    width: 674px;
+    height: 44px;
+    
+
+    }
+
+    .box-3 .light-blue{
+    width: 674px;
+    height: 44px;
+
+    }
+
+    .box-4 .neon-green{
+    width: 674px;
+    height: 44px;
+    }
+
+    .box-5 .orange{
+    width: 674px;
+    height: 44px;
+    position: absolute;
+    display: inline-block;
+    bottom: 195px;
+    left: 7px;
+
+    
+
+    }
+}

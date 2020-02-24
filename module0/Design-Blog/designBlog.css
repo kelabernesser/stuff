@@ -1,0 +1,130 @@
+.main .main{
+    height: 5550px;
+    width: 1400px;
+    border: 10px solid green;
+    display: inline-block;
+    position: relative;
+    background-color: lightgreen; 
+}
+
+.main .title{
+    display: inline-block;
+    position: relative;
+    bottom: 5500px;
+    left: 350px;
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+.navigation-bar{
+    height: 40px;
+    width: 1420px;
+    display:inline-block;
+    position: fixed;
+    top: 0px;
+    background-color: green;
+    z-index: 9999;
+}
+.home-button{
+    z-index: 9999;
+    bottom:5800px;
+    left:20px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.about-button{
+    z-index: 9999;
+    bottom:5800px;
+    left: 90px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.video-button{
+    z-index: 9999;
+    bottom:5800px;
+    left: 70px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.indoor-plants-title{
+    display: inline-block;
+    position: relative;
+    bottom: 5400px;
+    left: 40px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.indoor-plants-date{
+    display: inline-block;
+    position: relative;
+    bottom: 5400px;
+    left: 800px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.indoor-plants-image{
+    width:300px;
+    position: relative;
+    bottom:5000px;
+    right:300px;
+    border: 10px solid black;
+}
+
+.indoor-plants-blog{
+    position: relative;
+    bottom: 5000px;
+    left:10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    float: right;
+    margin: 20px;
+}
+
+.kid-plants-title{
+    display: inline-block;
+    position: relative;
+    bottom: 5000px;
+    left: 40px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.kid-plants-date{
+    display: inline-block;
+    position: relative;
+    bottom: 5000px;
+    left: 550px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.kid-plants-image{
+    width:300px;
+    position: relative;
+    bottom:4700px;
+    right:230px;
+    border: 10px solid black;
+
+}
+
+.kid-plants-blog{
+    display: inline-block;
+    position: relative;
+    bottom: 4700px;
+    left: 0px;
+    font-size: 15px;
+    margin:20px;
+    font-family: 'Courier New', Courier, monospace;
+
+
+}

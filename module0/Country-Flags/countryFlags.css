@@ -1,0 +1,406 @@
+.france .blue{
+    width:50px;
+    height:100px;
+    display : inline-block;
+    background-color: blue;
+}
+.france .white{
+    width: 50px;
+    height: 100px;
+    display : inline-block;
+    background-color: white;
+}
+.france .red{
+    width: 50px;
+    height: 100px;
+    display: inline-block;
+    background-color: red;
+}
+
+.germany .black{
+    width: 160px;
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    left :164px;
+    bottom: 103px;
+    background-color: black;
+}
+.germany .red{
+    width: 160px;
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    bottom:70px;
+    background-color: red;
+    
+}
+.germany .yellow{
+    width: 160px;
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    right:164px;
+    bottom:39px;
+    background-color: yellow;
+    
+}
+
+.madagascar .white{
+    width: 50px;
+    height: 100px;
+    display : inline-block;
+    background-color: white;
+    border-top: solid lightblue;
+    border-left: solid lightblue;
+    border-bottom: solid lightblue;
+}
+
+.madagascar .red{
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    bottom: 53px;
+    right: 5px;
+    background-color:red;
+    border-top: solid lightblue;
+    border-right: solid lightblue;
+}
+.madagascar .green{
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    right: 112px;
+    background-color:green;
+    border-bottom: solid lightblue;
+    border-right: solid lightblue;
+
+}
+
+.switzerland .red{
+    width: 103px;
+    height: 103px;
+    display: inline-block;
+    position: relative;
+    left: 165px;
+    bottom: 110px;
+    background-color: red;
+}
+.switzerland .white{
+    width: 20px;
+    height: 70px;
+    display: inline-block;
+    position: relative;
+    left: 100px;
+    bottom: 125px;
+    background-color: white;
+    
+}
+.switzerland .white-2{
+    width: 70px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    left: 51px;
+    bottom: 150px;
+    background-color: white;
+    
+}
+
+.sweden .aqua{
+    width: 153px;
+    height: 103px;
+    display: inline-block;
+    position: relative;
+    bottom: 100px;
+    background-color: steelblue ;
+
+}
+
+.sweden .yellow{
+    width: 20px;
+    height: 103px;
+    display: inline-block;
+    position: relative;
+    right: 120px;
+    bottom: 100px;
+    background-color: goldenrod;
+}
+
+.sweden .yellow-2{
+    width:153px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    right: 181px;
+    bottom: 140px;
+    background-color: goldenrod;
+}
+
+.gambia .red{
+    width: 160px;
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    left: 160px;
+    bottom:207px;
+    background-color: red;
+
+}
+
+.gambia .blue{
+    width: 160px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    bottom: 180px;
+    right: 3px;
+    background-color: darkblue;
+}
+.gambia .green{
+    width: 160px;
+    height: 33px;
+    display: inline-block;
+    position: relative;
+    bottom:140px;
+    right: 167px;
+    background-color: green;
+
+}
+
+.tonga .dark-red{
+    width: 175px;
+    height: 103px;
+    display:inline-block;
+    position: relative;
+    bottom: 100px;
+    background-color: rgb(190, 32, 32);
+}
+.tonga .white{
+    width: 75px;
+    height: 40px;
+    display:inline-block;
+    position: relative;
+    bottom: 163px;
+    right: 180px;
+    background-color:white;
+    
+    
+}
+.tonga .dark-red-2{
+    width: 12px;
+    height: 35px;
+    display: inline-block;
+    position: absolute;
+    right: 600px;
+    bottom: 235px;
+    background-color: rgb(190, 32, 32);
+    z-index: 9999;
+    
+}
+.tonga .dark-red-3{
+    width: 35px;
+    height: 12px;
+    display: inline-block;
+    position: absolute;
+    left: 25px;
+    bottom: 245px;
+    background-color: rgb(190, 32, 32);
+    z-index: 9999;
+    
+    
+}
+
+.japan .white{
+    width: 153px;
+    height: 103px;
+    display: inline-block;
+    position: relative;
+    left: 200px;
+    bottom: 210px;
+    background-color: white;
+    border : 1px solid lightblue;
+
+}
+.japan .red{
+    width: 65px;
+    height: 65px;
+    display: inline-block;
+    position: relative;
+    left: 85px;
+    bottom: 230px;
+    background-color: rgb(190, 32, 32);
+    border-radius: 50%;
+}
+
+.greece .white-square-1{
+    width: 175px;
+    height: 103px;
+    display: inline-block;
+    position: absolute;
+    bottom: 60px;
+    background-color: white;
+    border: solid black 1px;
+    z-index: -1;
+}
+.greece .blue-1{
+    width: 175px;
+    height: 11.7px;
+    display: inline-block;
+    position: absolute;
+    right: 465px;
+    bottom: 152px;
+    background-color: rgb(0, 140, 255);
+    z-index: -1;
+}
+
+.greece .blue-2{
+    width: 175px;
+    height: 11.7px;
+    display: inline-block;
+    position: absolute;
+    right: 465px;
+    bottom: 128px;
+    background-color: rgb(0, 140, 255);
+    z-index: -1;
+}
+
+.greece .blue-3{
+    width: 175px;
+    height: 11.7px;
+    display: inline-block;
+    position: absolute;
+    right: 465px;
+    bottom: 104px;
+    background-color: rgb(0, 140, 255);
+    z-index: -1;
+}
+
+.greece .blue-4{
+    width: 175px;
+    height: 11.7px;
+    display: inline-block;
+    position: absolute;
+    right: 465px;
+    bottom: 83px;
+    background-color: rgb(0, 140, 255);
+}
+
+.greece .blue-5{
+    width: 175px;
+    height: 11.7px;
+    display: inline-block;
+    position: absolute;
+    right: 465px;
+    bottom: 61px;
+    background-color: rgb(0, 140, 255);
+}
+
+.greece .blue-square-2{
+    width: 58px;
+    height: 58px;
+    display: inline-block;
+    position: absolute;
+    right: 582px;
+    bottom: 104px;
+    background-color: rgb(0, 140, 255);
+    z-index: 0;
+}
+
+.greece .white-vert{
+    width: 58px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    bottom: 130px;
+    left: 9px;
+    background-color: white;
+
+}
+
+.greece .white-horiz{
+    width: 10px;
+    height: 59px;
+    display: inline-block;
+    position: absolute;
+    bottom: 105px;
+    left: 30px;
+    background-color: white;
+}
+
+.niger .orange-red{
+    width: 160px;
+    height: 106px;
+    display: inline-block;
+    position: relative;;
+    bottom: 210px;
+    left: 190px;
+    background-color: orangered;
+
+}
+
+.niger .white{
+    width: 160px;
+    height: 35px;
+    display: inline-block;
+    position: relative;;
+    bottom: 245px;
+    left: 26px;
+    background-color: white;
+}
+
+.niger .green{
+    width: 160px;
+    height: 35px;
+    display: inline-block;
+    position: relative;;
+    bottom: 210px;
+    right: 138px;
+    background-color: rgb(39, 180, 39);
+}
+
+.niger .orange-red-circle{
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    bottom: 247px;
+    right: 235px;
+    background-color:orangered;
+    border-radius: 50%;
+
+}
+
+.maldives .dark-red{
+    width: 160px;
+    height: 106px;
+    display: inline-block;
+    position: relative;;
+    bottom: 210px;
+    left: 190px;
+    background-color: darkred;
+}
+
+.maldives .dark-green{
+    width: 120px;
+    height: 60px;
+    display: inline-block;
+    position: relative;;
+    bottom: 233px;
+    left: 47px;
+    background-color: darkgreen;
+}
+
+.maldives .moon{
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    bottom: 247px;
+    right: 26px;
+    background-color:darkgreen;
+    box-shadow: inset 7px 0px white, inset 0px 0px 0px 0px white;
+    border-radius: 50%;
+}

@@ -1,0 +1,44 @@
+#cut-container{
+    display: grid;
+    grid-template-columns: repeat(autofit, minmax(10px, 5fr));
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    
+}
+
+#red{
+    height: 100px;
+    background-color: red;
+    grid-column: 1/6;
+    grid-row: 1/2;
+    border-radius: 5px;
+
+}
+
+#blue{
+    height: 210px;
+    background-color: blue;
+    grid-column: 1/4;
+    grid-row: 2/4;
+    border-radius: 5px;
+}
+
+#green{
+    height: 100px;
+    background-color: green;
+    grid-column: 4/6;
+    grid-row: 2/3;
+    border-radius: 5px;
+}
+
+#pink-1{
+    height: 100px;
+    background-color: pink;
+    border-radius: 5px;
+}
+#pink-2{
+    height: 100px;
+    background-color: pink;
+    border-radius: 5px;
+}
+

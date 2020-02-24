@@ -1,0 +1,93 @@
+#primary-container{
+
+    display: grid;
+    grid-template-columns: repeat(autofit, minmax(10px, 3fr));
+    grid-template-columns: repeat(autofit, minmax(10px, 2fr));
+    grid-gap: 10px;
+}
+
+.blue{
+    height: 500px;
+    background-color: blue;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border-radius: 5px;
+
+    transition: background-color 1ms linear 1ms;
+
+}
+
+.red{
+    height: 500px;
+    background-color: red;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-radius: 5px;
+
+    transition: border 5000ms ease-out 1s;
+
+}
+.green{
+    height: 500px;
+    background-color: green;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    border-radius: 5px;
+
+    transition: box-shadow 5000ms linear 1s;
+
+}
+.yellow{
+    height: 500px;
+    background-color: yellow;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    border-radius: 5px;
+
+    transition: margin 1s ease-out 1s;
+
+}
+.pink{
+    height: 500px;
+    background-color: pink;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border-radius: 5px;
+
+    transition: height 1s linear 1s;
+
+}
+.orange{
+    height: 500px;
+    background-color: orange;
+    grid-column: 3/4;
+    grid-row: 2/3;
+    border-radius: 5px;
+
+    transition: width 1s ease-in-out 1s;
+
+}
+
+.blue:hover{
+    background-color: teal;
+}
+
+.red:hover{
+   border : 25px solid brown;
+}
+
+.green:hover{
+    box-shadow:5px 100px lime;
+}
+
+.yellow:hover{
+    margin: 10px;
+}
+
+.pink:hover{
+    height: 1px;
+}
+
+.orange:hover{
+    width : 0px;
+}

@@ -1,0 +1,29 @@
+.title{
+    color:  darkgreen;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.sub-headline{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.main{
+    line-height: 25px;
+}
+
+.link {
+    text-decoration: none;
+}
+.link:hover{
+    text-decoration: underline;
+}
+
+.more{
+   text-transform: uppercase;
+}
+
+.img{
+    float: left;
+    width: 250px;
+    padding: 10px;
+}

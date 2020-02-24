@@ -1,0 +1,47 @@
+.title{
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+    text-align: center;
+    display : block;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.sub-title{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    display: block;
+    font-size: 100px;
+    
+}
+
+.article-title{
+    position: relative;
+    left: 150px;
+}
+.obama-image{
+    width : 700px;
+    height : 500px;
+    float: right;
+    border: solid black 10px;
+    
+}
+
+.stuff{
+    display: block;
+    padding: 10px;
+}
+
+.obama-walking{
+    width: 300px;
+    height: 400px;
+    display: block;
+    border: solid black 10px;
+}
+
+.bullets{
+    position: relative;
+    display: block;
+    clear: right;
+}
+
+

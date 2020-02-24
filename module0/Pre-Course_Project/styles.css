@@ -1,0 +1,32 @@
+.main{
+    background-color: green;
+}
+span{
+    
+    font-size: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    left: 550px;
+}
+
+
+
+.button-1{
+    font-size: 70px;
+    position: relative;
+    left: 500px;
+    top: 200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 10px solid black;
+    background-color: yellow;
+}
+
+.button-2{
+    font-size: 70px;
+    position: relative;
+    left: 50px;
+    top: 500px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 10px solid black;
+    background-color: greenyellow;
+}
