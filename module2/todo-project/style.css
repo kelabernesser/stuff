@@ -1,0 +1,45 @@
+body{
+    background-color: greenyellow;
+    
+}
+
+form{
+    border: 1px solid white;
+    display: grid;
+    width: 700px;
+    height: 200px;
+}
+
+.listItems{
+    border: solid white;
+    border-radius: 500px;
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+img{
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+button{
+    
+    border-radius: 5px;
+    height: 50px;
+    color: greenyellow;
+    border: 1px solid white
+    
+}
+
+
+
+@media (max-width : 900px){
+    form{
+        width: 545px;
+    }
+
+}

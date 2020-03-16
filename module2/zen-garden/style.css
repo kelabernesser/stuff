@@ -15,36 +15,36 @@ body{
     /*border: solid black 2px;*/
 
 
-.title{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    font-size: 50px;
+header{
     grid-row: 1/2;
     grid-column: 1/3;
     height: 300px;
     background-image: url(http://www.csszengarden.com/214/gridlines.png),url("http://www.csszengarden.com/214/contours-opaque.png") ,url("http://www.csszengarden.com/214/huntington.jpg");
+    display: grid;
+    grid-template-columns: repeat(15,1fr);
+    grid-template-rows: repeat(15, 1fr);
    
 }
 .titleLetter{
-    
+    grid-column: 5/11;
+    grid-row: 6/9;
     font-family: 'Julius Sans One', sans-serif;
     color: white;  
-    font-size: 40px;
-    font-weight: normal;
+    font-size: 50px;
+    font-weight: normal; 
 
 }
 .imageEnzo{
-    height: 125px;
-    
-    
-    
+    height: 130px;
+    grid-column: 3/5;
+    grid-row: 5/8;
+    padding-right: 50px;
+
 }
+
 .beautyWord{
-    margin-top: 50px;
-    display: flex;
-    position: absolute;
-    padding: 125px;
+    grid-column: 5/10;
+    grid-row: 8/9;
     font-size: 30px;
     font-style: italic;
     font-weight: normal;
@@ -52,15 +52,8 @@ body{
     
 }
 
-.button-function{
-    display: flex;
-    flex-direction: row;
-    margin-left: 560px;
-}
 
 .view-more-button{
-    display: flex;
-    justify-content: flex-end;
     align-items: center;
     height: 70px;
     border-radius: 0%;
@@ -69,6 +62,9 @@ body{
     background-color: grey;
     font-size: 20px;
     opacity: 0.4; 
+    grid-column: 12/14;
+    grid-row: 7/8;
+    
 
 }
 .arrow-button-1{
@@ -80,6 +76,8 @@ body{
     font-size: 20px;
     opacity: 0.4;
     width: 90px;
+    grid-column: 11/12;
+    grid-row: 7/8;
 
 }
 .arrow-button-2{
@@ -91,48 +89,75 @@ body{
     font-size: 20px;
     opacity: 0.4;
     width: 90px;
+    grid-column: 14/15;
+    grid-row: 7/8;
 
 }
 
 .road{
     background-color: white;
     grid-row: 2/3;
-    grid-column: 1/2;
+    grid-column: 1/2;                   
     height: 900px;
     padding: 20px;
 }
-.author-1{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding-left: 90px;
-    flex-direction: column;
-    background-color: rgb(248, 244, 244);
-    grid-row: 2/3;
+.authors{
+    grid-row: 6/7;
     grid-column: 2/3;
-    height: 700px;
-}
-.author-2{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding-left: 90px;
-    flex-direction: column;
-    background-color: rgb(248, 244, 244);
-    grid-row: 2/3;
-    grid-column: 2/3;
-    height: 700px;
-
-
-}
-
-
-.author-name{
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    background-color: rgb(248, 244, 244); 
     color: rgba(34, 63, 46, 0.5);
     font-size: 20px;
     font-family: 'Libre Baskerville', sans-serif;
-    border-bottom: 1px solid rgb(241, 215, 215);
+    
 
+}
+
+.mid-century{
+    padding:50px;
+    grid-column: 1/3;
+    grid-row: 1/2
+}
+.garments{
+    padding:50px;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+.steel{
+    padding:50px;
+    grid-column:1/3;
+    grid-row: 3/4;
+    
+}
+.apothecary{
+    padding:50px;
+    grid-column:1/3;
+    grid-row:4/5;
+}
+.screen-filler{
+    padding:50px;
+    grid-column: 1/3;
+    grid-row: 5/6;
+}
+.fountain-kiss{
+    padding:50px;
+    grid-column:1/3;
+    grid-row: 6/7;
+
+}
+
+.robot-jimmy{
+    padding:50px;
+    grid-column:1/3;
+    grid-row: 7/8;
+
+}
+.verde-moderna{
+    padding:50px;
+    grid-column:1/3;
+    grid-row:8/9;
 }
 .participation{
     background-color: rgba(138,188,159,0.5);
@@ -144,7 +169,7 @@ body{
 }
 
 
-.link-1 {
+.links {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -220,48 +245,133 @@ body{
 
 @media (max-width: 900px){
     /* use this media query to help these two cells drop to the bottom when screens are smaller */
-    .authors{
-        grid-column: 1/3;
-        grid-row: 7/8;
-        column-count: 2;
-        column-gap: 0px;
+  
+
+     /* container could use some help so that it's children are full screen width */
+     .container {
+        height: 100%;
+        grid-template-rows: repeat(autofit, minmax(50px, 8fr))
+ 
         
+     }
+    .title{
+        grid-column: 1/3;
+       
+    }
+    .road{
+        grid-column: 1/3;
+        
+        height: 1000px;
+    }
+    .participation{
+        
+        grid-column: 1/3;
+        height: 900px;
+    }
+    .requirements{
+        
+        grid-column: 1/3;
+        height: 900px;
+    }
+    .footer{
+        
+        grid-column:1/3;
+    }
+    /*.credits{
+        grid-row:6/7;
+        grid-column: 1/3;
+    }*/
+    .authors{
+        
+        
+        grid-template-rows: repeat(4, 1fr);*/
         
     }
+  
     .links{
         grid-column: 1/3;
         grid-row: 8/9;
         column-count: 2;
         column-gap: 0px;
     }
-    .road{
-        grid-column: 1/3;
-        height: 1000px;
-    }
-    .participation{
-        grid-column: 1/3;
-        height: 900px;
-    }
-    .requirements{
-        grid-column: 1/3;
-        height: 900px;
-    }
+    
+   
     .extra{
         visibility: none;
         position: absolute;
 
     }
-    .title{
-        flex-direction: column;
+    
+    /*.titleLetter{
+        font-size: 40px;
+        grid-column: 6/15;
+        grid-row: 8/9;
+       
+    }*/
+    
+    /*.beautyWord{
+        font-size: 25px;
+        grid-column: 6/15;
+        grid-row: 8/9;
     }
-    .titleLetter{
-        position: absolute;
-        margin-top: 120px;
+    .view-more-button{
+        grid-column: 2/15;
+        grid-row:15/16;
     }
-    .button-function{
-        margin-top: 100px;
-        margin-right: 560px;
+    .arrow-button-1{
+        grid-column: 1/2;
+        grid-row: 15/16;
+
     }
+    .arrow-button-2{
+        grid-column: 15/16;
+        grid-row: 15/16;
+    }
+
+    .mid-century{
+        padding:50px;
+        grid-column: 1/2;
+        grid-row: 1/2
+    }
+    .garments{
+        padding:50px;
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .steel{
+        padding:50px;
+        grid-column:1/2;
+        grid-row: 3/4;
+        
+    }
+    .apothecary{
+        padding:50px;
+        grid-column:1/2;
+        grid-row:4/5;
+    }
+    .screen-filler{
+        padding:50px;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    .fountain-kiss{
+        padding:50px;
+        grid-column:2/3;
+        grid-row: 2/3;
+    
+    }
+    
+    .robot-jimmy{
+        padding:50px;
+        grid-column:2/3;
+        grid-row: 3/4;
+    
+    }
+    .verde-moderna{
+        padding:50px;
+        grid-column:2/3;
+        grid-row:4/5;
+    }*/
     
   
     
@@ -269,11 +379,7 @@ body{
 
     
     
-    /* container could use some help so that it's children are full screen width */
-    .container {
-       height: 100%;
-       
-    }
+   
 }
 
 /* FLEX */
@@ -292,6 +398,7 @@ body{
     background-color: black;
     border-radius: 50%;
 }
+
 
 
 

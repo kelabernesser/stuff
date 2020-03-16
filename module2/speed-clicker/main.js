@@ -1,34 +1,26 @@
-const clickMe = document.getElementsByTagName("button")[0]
+const clickMe = document.getElementById("button")
 
-let count = 0 || localStorage.getItem("count")
+let count = 0
 
 const body = document.getElementsByTagName("body")[0]
+const showCount = document.createElement('h1')
+showCount.textContent = localStorage.getItem("count")
+body.append(showCount)
 
-let clicker = document.createElement("h1")
-
-clicker.textContent = count
 clickMe.addEventListener("click", function(e){
+    e.preventDefault()
 
-   // e.preventDefault()
+    count = JSON.parse(localStorage.getItem("count")) + 1
 
-    count++
-
-    clicker.textContent = count
-
-    //body.append(clicker)
-
-    localStorage.setItem("count", count )
-
-    clicker.innerHTML = (localStorage.getItem("count"))
-
+    localStorage.setItem("count", count)
     
 
+    showCount.textContent = localStorage.getItem("count")
     
+   // body.append(showCount)
+
     
 })
-
-body.append(clicker)
-
 
 
 

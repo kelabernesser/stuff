@@ -1,4 +1,3 @@
-const airlineForm = document.airlineForm
 
 const body = document.getElementsByTagName("body")[0]
 body.style.textAlign = "center"
@@ -38,6 +37,7 @@ destination.style.textAlign = "center"
 
 
 
+const airlineForm = document.airlineForm
 
 airlineForm.addEventListener("submit", function(e){
     e.preventDefault()

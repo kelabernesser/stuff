@@ -1,0 +1,91 @@
+{
+    "appetizers" : [
+        {
+            "name" : "pickles",
+            "ingridients": ["salt", "vinegar", "cucumbers"],
+            "string": "a delicious light snack to cure the even the worst hangovers"
+        },
+        {
+            "name" : "chips",
+            "ingridients": ["salt", "flavorChoice", "potatoes"],
+            "string":"salty snack that can be added on to any sandwhich for a nice crunch!"
+
+        }
+        
+   ],
+    
+    "coldSandwhiches": [
+        {
+            "name": "italian",
+            "ingridients": ["salami", "hotPeppers", "provoloneCheese", "sourdoughBread"],
+            "string": "delicious sandwhich straight from italy!"
+        } ,
+        {
+            "name": "peanut-butter/jelly",
+            "ingridients": ["peanut-butter", "jelly", "wheatBread"],
+            "string":"a nice treat with a touch of healthy!"
+            
+        },
+        {
+            "name": "hamSwiss",
+            "ingridients":["ham", "swissCheese", "ryeBread"],
+            "string": "a sandwhich made for an old person"
+        }
+    ],
+    "hotSandwhiches" : [
+        {
+            "name": "grilledCheese",
+            "ingridients": ["americanCheese", "provoloneCheese", "swissCheese", "blueCheese"],
+            "string":"a sandwhich filled with three great cheeses and one terrible one just to spice things up"
+        },
+        {            
+            "name": "meatballSub",
+            "ingridients": ["meatballs", "marinara", "hoagieBread"],
+            "string": "a sandwhich to guarantee you wont want to move for the next five hours"
+   
+
+        } ,
+        {
+            "name": "frenchDip",
+            "ingridients":["roastBeed", "baguette", "swissCheese", "beefBroth"],
+            "string":"a yummy soggy sandwhich"
+        }
+    ],
+    
+    "desserts" : [
+        {
+            "name": "cookies",
+            "ingridients":["chocolateChips", "sugar", "butter"],
+            "string": "chocolate chip cookies for the soul"
+        } ,
+        {
+            "name": "brownies",
+            "ingridients":["darkChocolate", "whiteChocolate", "butter", "sugar"],
+            "string":"brownies that are meant for sharing"
+        },
+        {
+            "name": "pie",
+            "ingridients":["cherry", "pieDough", "vanillaIcecream"],
+            "string": "a warm treat for the coldest days"
+            
+        }
+    ],
+    
+    "drinks" : [
+        {
+            "name": "juice",
+            "ingridients":["apples", "sugar"],
+            "string":"perfect with a hoagie"
+        }, 
+        {
+            "name": "soda",
+            "ingridients":["coke", "sugar"],
+            "string":"we only serve diet coke"
+        }, 
+        {
+            "name": "coffee",
+            "ingridients":["coffeeBeans", "sugar"],
+            "string":"sugar with coffee is not reccommended"
+        }]
+
+}
