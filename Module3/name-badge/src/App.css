@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.form{
+  border: 3px solid black;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 800px;
+  border-radius: 25px;
+  
+}
+.normalInput{
+  border: 3px solid black;
+
+
+}
+.bigInput{
+  border: 3px solid black;
+  grid-column: 1/3;
+  height: 200px;
+  margin: 50px;
+  
+}
+.submitButton{
+  position: relative;
+  grid-column: 1/3;
+  width: 100px;
+  left: 350px;
+  border: 3px solid black;
+  border-radius: 5px;
+  background-color: rgb(230, 222, 222);
+  font-size: 15px;
+}
+.badgeStyle {
+  border: 3px solid black;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 800px;
+  border-radius : 25px
+}
+
