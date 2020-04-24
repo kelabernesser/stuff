@@ -1,0 +1,103 @@
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(48, 119, 116);
+  padding: 20px;
+}
+.links{
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+.homePage{
+  margin-top: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  background-image: url("https://ak7.picdn.net/shutterstock/videos/1037027657/thumb/1.jpg");
+}
+.homePageName{
+  background-image: url("https://img.theculturetrip.com/1440x807/smart/wp-content/uploads/2017/04/shutterstock_606533345.jpg");
+  margin: 0px;
+ color: whitesmoke;
+ font-size: 70px;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ padding-left: 0px;
+
+}
+.homePageTopics{
+  color: white;
+}
+.pageName{
+ margin: 0px;
+ color: whitesmoke;
+ font-size: 70px;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ padding-left: 0px;
+
+}
+
+.aboutPage{
+  background-color: grey;
+  height: 700px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.servicesPage{
+  margin-top: 0px;
+  height: 700px;
+  background-color: grey;
+}
+ol{
+  color: whitesmoke;
+  padding: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+li{
+  padding: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.aboutInfo{
+  padding: 10px;
+  line-height: 1.6;
+  color: rgb(247, 244, 244);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.homeInfo{
+  color: white;
+  padding-left: 20px;
+}
+
+footer{
+  width: 100%;
+  background-color:  rgb(48, 119, 116) ;
+  padding: 20px;
+}
+
+
