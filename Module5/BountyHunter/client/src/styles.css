@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: rgb(5, 5, 238);
+}
+h1{
+    margin: 5px;
+}
+p{
+    margin: 5px;
+}
+.bounty-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+    
+}
+.bounty{
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+input{
+padding: 10px;
+font-size: 16px;
+border: 1px solid #333;
+border-radius: 8px;
+margin: 5px
+}
+.submit-btn{
+    background-color: yellow;
+    color: black;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100px;
+    margin: 5px
+}
+.delete-btn{
+    background-color: green;
+    color: whitesmoke;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100px;
+    margin: 5px
+}
+.edit-btn{
+    background-color: red;
+    color: whitesmoke;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100px;
+    margin: 5px
+}
