@@ -70,7 +70,7 @@ function handleAnswer(e){
 return(
     <div className = "question-page">
         <div><h1 className = "points"> Total Points: {playerPoints}</h1></div>
-        <h1 className = "question-prompt">{index + 1}.{question && <div>{question.question}</div>}</h1>
+        <h1 className = "question-prompt">{index + 1}.{question && <div dangerouslySetInnerHTML = {{__html:question.question}}></div>}</h1>
         <h1>{answers && <button disabled = {!answerButton} onClick = {handleAnswer} >{answers[0]}</button>}</h1>
         <h1>{answers && <button disabled = {!answerButton} onClick = {handleAnswer} >{answers[1]}</button>}</h1>
         <h1>{answers && <button disabled = {!answerButton} onClick = {handleAnswer} >{answers[2]}</button>}</h1>

@@ -19,12 +19,12 @@ function App() {
                 <Route exact path="/">
                     <Main  />
                 </Route>
-                <Route path = "/results" component = {Results}>
+                <Route path = "/results" component = {Results}/>
                   
-                </Route>
-                <Route path="/questions" component = {QuestionPrompt}>
+              
+                <Route path="/questions" component = {QuestionPrompt}/>
                     
-                </Route>
+                
                 
             </Switch>
         </div>

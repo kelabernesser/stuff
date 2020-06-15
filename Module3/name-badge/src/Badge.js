@@ -7,46 +7,21 @@ class Badge extends React.Component {
         const badges = badgeArr.map((badge, index) => {
             const badgeStyle = {
                 border: "3px solid black",
-                display: "grid",
-                gridTemplateColumns: "repeat(8,1fr)",
-                gridTemplateRows: "repeat(7,1fr)",
+                display: "flex",
+                flexDirection: "column",
                 rowGap: "10px",
                 columnGap: "10px",
                 margin: "10px",
                 padding: "0px",
-                width: "800px",
-                borderRadius: "25px",
+                width: "820px",
             }
 
             const navBar = {
-                backgroundColor: "grey",
+                backgroundColor: "rgb(27, 116, 15)",
                 color: "white",
-                gridColumn: "1/9",
-                gridRow: "1/2",
-                borderRadius: "10px",
                 border: "3px solid black"
             }
-
-            const nameStyle = {
-                gridColumn: "2/6",
-                gridRow: "2/3"
-            }
-            const phoneStyle = {
-                gridColumn: "6/9",
-                gridRow: "2/3"
-            }
-            const birthStyle = {
-                gridColumn : "2/6",
-                gridRow: "3/4"
-            }
-            const foodStyle = {
-                gridColumn: "6/9",
-                gridRow: "3/4"
-            }
-            const emailStyle = {
-                gridColumn: "2/6",
-                gridRow: "4/5"
-            }
+            
             const textStyle = {
                 gridColumn: "2/8",
                 gridRow: "5/9",
@@ -62,19 +37,19 @@ class Badge extends React.Component {
                     style = {navBar}>
                         Badge:
                 </nav>
-                    <p style = {nameStyle}>
+                    <p >
                         Name: {badge.firstName} {badge.lastName}
                     </p>
-                    <p style = {birthStyle}>
+                    <p >
                         Place of Birth:{badge.placeOfBirth}
                     </p>
-                    <p style = {emailStyle}>
+                    <p >
                         Email: {badge.email}
                     </p>
-                    <p style = {phoneStyle}>
+                    <p >
                         Phone:  {badge.phone}
                     </p>
-                    <p style = {foodStyle}>
+                    <p >
                         Favorite Food: {badge.favoriteFood}
                     </p>
                     <p

@@ -1,0 +1,21 @@
+{
+  "name": "Module6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "dotenv": "^8.2.0",
+    "express-jwt": "^5.3.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.15",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

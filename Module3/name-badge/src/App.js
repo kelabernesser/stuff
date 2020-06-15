@@ -19,39 +19,22 @@ class App extends React.Component {
       disabled : true
 
     }
-    this.handleChange = this.handleChange.bind(this)
+   
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
- /* clearInputs = () =>{
-    this.setState({
-      badge: {
-        firstName: "",
-        lastName: "",
-        placeOfBirth: "",
-        email: "",
-        phone: "",
-        favoriteFood: "",
-        aboutYou: ""
-      }
-    })
-  }*/
-  
  
   
-  handleChange(e) {
-    e.preventDefault()
+  handleChange = (e) => {
     const { name, value} = e.target
     this.setState(prevState => ({
       badge: { ...prevState.badge, [name]: value },
       
     }))
   }
+
   handleSubmit(e) {
     e.preventDefault()
-    const { name, value} = e.target
-   
-
       this.setState(prevState => ({
         badge : {
           firstName: "",
@@ -71,8 +54,10 @@ class App extends React.Component {
     
   }
   render() {
+    let {firstName, lastName, email, placeOfBirth, phone, favoriteFood, aboutYou} = this.state.badge
     return (
-      <main>
+      <main className = "App">
+        <h1 className = "title">[Name-Badge]</h1>
         <form 
           className="form"
           onSubmit={this.handleSubmit}
@@ -80,7 +65,7 @@ class App extends React.Component {
           <input
             className="normalInput"
             placeholder="First Name"
-            value={this.state.badge.firstName}
+            value={firstName}
             onChange={this.handleChange}
             name="firstName"
             minLength={3}
@@ -89,7 +74,7 @@ class App extends React.Component {
           <input
             className="normalInput"
             placeholder="Last Name"
-            value={this.state.badge.lastName}
+            value={lastName}
             name="lastName"
             onChange={this.handleChange}
             minLength={3} 
@@ -97,7 +82,7 @@ class App extends React.Component {
           <input
             className="normalInput"
             placeholder="email"
-            value={this.state.badge.email}
+            value={email}
             name="email"
             onChange={this.handleChange} 
             minLength={3}
@@ -105,7 +90,7 @@ class App extends React.Component {
           <input
             className = "normalInput"
             placeholder = "Place of Birth"
-            value = {this.state.badge.placeOfBirth}
+            value = {placeOfBirth}
             name = "placeOfBirth"
             onChange = {this.handleChange}
             minLength={3}
@@ -115,7 +100,7 @@ class App extends React.Component {
             className = "normalInput"
             placeholder = "phone"
             type = "number"
-            value = {this.state.badge.phone}
+            value = {phone}
             name = "phone"
             onChange = {this.handleChange}
             minLength={3}
@@ -125,7 +110,7 @@ class App extends React.Component {
           <input
             className = "normalInput"
             placeholder = "Favorite Food"
-            value = {this.state.badge.favoriteFood}
+            value = {favoriteFood}
             name = "favoriteFood"
             onChange = {this.handleChange}
             minLength={3}
@@ -133,7 +118,7 @@ class App extends React.Component {
           <textarea
             className = "bigInput"
             placeholder= "Tell us about yourself"
-            value = {this.state.badge.aboutYou}
+            value = {aboutYou}
             name = "aboutYou"
             onChange = {this.handleChange}
             minLength={3}
@@ -142,7 +127,6 @@ class App extends React.Component {
 
           <button
             className="submitButton"
-            disabled = {this.state.disabled}
           >Submit
           </button>
         </form>

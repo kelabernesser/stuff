@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import toDoListImg from "./assets/toDoList.png"
+import trivia from "./assets/trivia.png"
 import nameBadge from "./assets/nameBadge.png"
-import reactRoto from "./assets/roto-router.png"
+import uglyThing from "./assets/uglyThing.png"
 import Footer from "./footer"
 
 import Header from "./header"
@@ -13,15 +13,15 @@ function App() {
     <div className="App">
       <Header/>
       <div className="eachInfo">
-        <h2 className="boxTitle">Simple ToDo List</h2>
-        <h3 className = "madWith">made with: Vanilla JS, CSS, HTML</h3>
-        <p className = "project">An app that allows the user to make a toDo and mark it as complete or delete the toDo</p>
-        <a href = "http://127.0.0.1:5501/todo-project/index.html"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
-        <a href = "https://github.com/kelabernesser/stuff/tree/master/module2/todo-project"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
+        <h2 className="boxTitle">Trivia</h2>
+        <h3 className = "madWith">made with: React JS, CSS, HTML</h3>
+        <p className = "project">A single page trivia application, testing the user's music knowledge. This app uses React Hooks to store and retrieve information and react-router to navigate.</p>
+        <a href = "http://kelabernesser-trivia.surge.sh/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
+        <a href = "https://github.com/kelabernesser/stuff/tree/master/Module4/very-useful-trivia"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
       </div>
 
       <div className="details1">
-        <img src={toDoListImg} alt="todoList" />
+        <img src={trivia} alt="trivia" />
       </div>
 
       <div className="eachInfo1">
@@ -39,13 +39,13 @@ function App() {
       <div className="eachInfo2">
         <h2 className="boxTitle">Single Page Applications</h2>
         <h3 className = "madWith">made with: React, JS, CSS, HTML</h3>
-        <p className = "project">Using React Router to switch between pages through a single page application</p>
-        <a href = "http://kelabernesser-singlepageapp.surge.sh/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
-        <a href = "https://github.com/kelabernesser/stuff/tree/master/Module4/react-roto-router"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
+        <p className = "project">An app that allows the user to add, delete, and edit something of their choice. </p>
+        <a href = "http://kelabernesser-uglythings.surge.sh/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
+        <a href = "https://github.com/kelabernesser/stuff/tree/master/Module4/ugly-things"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
       </div>
 
       <div className="details3">
-        <img src={reactRoto} alt="reactRoto" />
+        <img src={uglyThing} alt="uglyThing" />
       </div>
 
       <div className="aboutMe">
