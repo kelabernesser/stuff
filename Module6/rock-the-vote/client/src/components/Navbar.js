@@ -128,7 +128,7 @@ const Username = styled.div`
 
 export default function Navbar(props) {
     const {voter} = useContext(UserContext)
-    const {getIssue, issueState} = useContext(IssueContext)
+    const {getIssue, getVoterIssues, issueState} = useContext(IssueContext)
 
     const [menuState, setMenuState] = useState(false)
 
@@ -138,6 +138,7 @@ export default function Navbar(props) {
 
     useEffect(() => {
         getIssue()
+        getVoterIssues()
     }, [])
 
     const { logout } = props
@@ -149,7 +150,6 @@ export default function Navbar(props) {
                 
                 <img src = "https://cdn4.iconfinder.com/data/icons/website-library/32/hamburger_List_hamburger_right_menu_website-512.png"/>
                 <h3>@{voter.username}</h3>
-                <div>issue: {issueState.title}</div>
             </Username>
             {menuState ? (
                 
@@ -157,14 +157,6 @@ export default function Navbar(props) {
                     <LinkContainer>
                     <Link className="link" to="/main">Main</Link>
                     <Link className="link" to='/profile'>Profile</Link>
-                    <Link to='/public'>Public</Link>
-                        <button
-                            onClick = {() => {
-                                getIssue()
-                            }}
-                        >Change Issue
-
-                        </button>
                         <button onClick={logout}>Logout</button>
                     </LinkContainer>
                 </React.Fragment> 

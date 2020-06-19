@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar.js"
 import Auth from './components/Auth.js'
 import Main from './components/Main.js'
 import Profile from "./components/Profile.js"
-import Public from './components/Public.js'
 import ProtectedRoute from './components/ProtectedRoute.js'
 import {UserContext} from "./context/UserProvider.js"
 
@@ -31,12 +30,7 @@ function App() {
           redirectTo ='/'
           token={token}
         />
-        <ProtectedRoute
-          path = '/public'
-          component = {Public}
-          redirect = '/'
-          token = {token}
-        />
+        
       </Switch>
      
      

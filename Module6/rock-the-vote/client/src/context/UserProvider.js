@@ -20,10 +20,6 @@ export default function UserProvider(props){
     }
 
     const [voterState, setVoterState] = useState(initState)
-    // const [issueState, setIssueState] = useState({
-    //     _id: "",
-    //     title: ""
-    // })
     const [comments, setComments] = useState([])
     
     
@@ -83,20 +79,9 @@ export default function UserProvider(props){
       }))  
     }
 
-    // function getIssue(){
-    //     voterAxios.get('/api/politicalIssues')
-    //     .then((res) => {
-    //         const issue = res.data[Math.floor(Math.random() * res.data.length)]
-    //         setIssueState({
-    //             _id: issue._id,
-    //             title: issue.title
-    //         })
-            
-    //     })
-    //     .catch((err) => {
-    //         console.log(err)
-    //     })
-    // }
+    
+
+    
 
     
     return(

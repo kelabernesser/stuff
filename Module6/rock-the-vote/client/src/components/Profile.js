@@ -1,6 +1,8 @@
-import React, {useContext, useEffect} from "react"
+import React, { useContext, useEffect } from "react"
 import { UserContext } from "../context/UserProvider"
+import { IssueContext } from '../context/IssueProvider'
 import styled from "styled-components"
+import IssueFinal from "../components/IssueFinal.js"
 
 const IssuePage = styled.div`
     height: 200vh;
@@ -30,26 +32,22 @@ const WelcomeSide = styled.div`
 const IssueSide = styled.div`
 `
 
-export default function Profile(){
-//     const { 
-//         getIssue,
-//         issueState
-//     } = useContext(UserContext)
+export default function Profile() {
+    const { voterState } = useContext(IssueContext)
 
-//    console.log(issueState)
 
-//    useEffect(() => {
-//     //getComments();
-// }, [issueState]);
-    
-// console.log(issueState)
-    return(
+    return (
         <IssuePage>
-        <WelcomeSide className = "welcome-side">
-            <h1>Welcome </h1>
-        </WelcomeSide>
-        <IssueSide className = 'issue-side'>
-        </IssueSide>
+            <WelcomeSide className="welcome-side">
+                <h1>Welcome </h1>
+            </WelcomeSide>
+            <IssueSide className='issue-side'>
+                {voterState.map(issue =>
+                    <IssueFinal
+                        {...issue}
+                        key={issue._id}
+                    />)}
+            </IssueSide>
         </IssuePage>
     )
 }

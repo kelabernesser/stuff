@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react'
-import UserContext from "../context/UserProvider.js"
+import IssueContext from "../context/IssueProvider.js"
 import styled from 'styled-components'
 
 const InputForm = styled.div`
@@ -46,8 +46,10 @@ const initInputs = {
 }
 
 export default function IssueForm(props){
-    //const { getVoterComments } = useContext(UserContext)
     const [inputs, setInputs] = useState(initInputs)
+    //const {addIssue} = useContext(IssueContext)
+    const {addIssue, getIssue} = props
+
     
     
 
@@ -61,15 +63,13 @@ export default function IssueForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        
-        
+        addIssue(inputs)
+        getIssue()
     }
 
-    useEffect(() => {
-        
-    },[])
+    
 
-    console.log(issueState)
+    
 
     const {title, description} = inputs
 
