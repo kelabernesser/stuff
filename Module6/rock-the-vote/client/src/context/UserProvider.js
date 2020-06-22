@@ -16,11 +16,10 @@ export default function UserProvider(props){
     const initState = {
         voter: JSON.parse(localStorage.getItem("voter")) || {},
         token: localStorage.getItem("token") || "",
-        comments: []
+        
     }
 
     const [voterState, setVoterState] = useState(initState)
-    const [comments, setComments] = useState([])
     
     
 
@@ -61,7 +60,7 @@ export default function UserProvider(props){
         setVoterState({
             voter: {},
             token: "",
-            comments: []
+            
         })
     }
 
@@ -78,9 +77,10 @@ export default function UserProvider(props){
           errMsg: ""
       }))  
     }
+    console.log(voterState.voter)
 
     
-
+    const {voter} = voterState
     
 
     
@@ -88,6 +88,7 @@ export default function UserProvider(props){
         <UserContext.Provider
             value = {{
                 ...voterState,
+                voter,
                 signup,
                 login,
                 logout,

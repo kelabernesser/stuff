@@ -59,6 +59,69 @@ politicalIssuesRouter.put('/:politicalIssueId', (req, res, next) => {
     })
 })
 
+politicalIssuesRouter.put('/upvote/:politicalIssueId', (req, res, next) => {
+    PoliticalIssues.findOneAndUpdate(
+        {_id: req.params.politicalIssueId},
+        {$inc: {upvotes: 1}},
+        {new: true},
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(updatedIssue)
+        }
+    
+    )
+})
+
+politicalIssuesRouter.put('/downvote/:politicalIssueId', (req, res, next) => {
+    PoliticalIssues.findOneAndUpdate(
+        {_id: req.params.politicalIssueId},
+        {$inc: {downvotes: 1}},
+        {new: true},
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedIssue)
+        }
+    )
+})
+
+politicalIssuesRouter.put('/decrementUpvote/:politicalIssueId', (req, res, next) => {
+    PoliticalIssues.findOneAndUpdate(
+        {_id: req.params.politicalIssueId},
+        {$inc: {upvotes: -1}},
+        {new: true},
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(updatedIssue)
+        }
+    
+    )
+})
+
+politicalIssuesRouter.put('/decrementDownvote/:politicalIssueId', (req, res, next) => {
+    PoliticalIssues.findOneAndUpdate(
+        {_id: req.params.politicalIssueId},
+        {$inc: {downvotes: -1}},
+        {new: true},
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(updatedIssue)
+        }
+    
+    )
+})
+
 
 
 

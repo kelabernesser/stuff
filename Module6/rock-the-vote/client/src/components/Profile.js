@@ -33,16 +33,19 @@ const IssueSide = styled.div`
 `
 
 export default function Profile() {
-    const { voterState } = useContext(IssueContext)
+    const { issueState} = useContext(IssueContext)
 
+    issueState.sort((a, b) => (a.upvotes < b.upvotes) ? 1 : -1)
+    console.log(issueState)
 
+    
     return (
         <IssuePage>
             <WelcomeSide className="welcome-side">
                 <h1>Welcome </h1>
             </WelcomeSide>
             <IssueSide className='issue-side'>
-                {voterState.map(issue =>
+                {issueState.map(issue =>
                     <IssueFinal
                         {...issue}
                         key={issue._id}

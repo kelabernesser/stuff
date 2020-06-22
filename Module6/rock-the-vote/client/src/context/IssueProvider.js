@@ -13,7 +13,7 @@ issueAxios.interceptors.request.use(config => {
 
 export default function IssueProvider(props){
     const [issueArray, setIssueArray] = useState([])
-    const [voterState, setVoterState] = useState([])
+    const [issueState, setIssueState] = useState([])
 
     function getIssue(){
         issueAxios.get('/api/politicalIssues')
@@ -29,7 +29,7 @@ export default function IssueProvider(props){
     function getVoterIssues(){
         issueAxios.get('/api/politicalIssues/voter')
         .then((res) => {
-            setVoterState(res.data)
+            setIssueState(res.data)
         })
         .catch((err) => {
             console.log(err)
@@ -37,23 +37,44 @@ export default function IssueProvider(props){
     }
 
 
-    function editVotes( updates, politicalIssueId){
-        issueAxios.put(`/api/politicalIssues/${politicalIssueId}`, updates)
+    function upvotes(politicalIssueId){
+        issueAxios.put(`/api/politicalIssues/upvote/${politicalIssueId}`)
         .then((res) => {
             console.log(res.data)
             
-            //setUpVoteState(prev => prev + 1)
-            //setVoterState(prev => prev.map(issue => issue._id !== politicalIssueId ? issue : res.data))
+            //setIssueState(prev => prev.map(issue => issue._id !== politicalIssueId ? issue : res.data))
         })
         .catch((err) => console.log(err))
     }
 
-    console.log(voterState)
+    function downvotes(politicalIssueId){
+        issueAxios.put(`/api/politicalIssues/downvote/${politicalIssueId}`)
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => console.log(err))
+    }
+
+    function decrementUpvote(politicalIssueId){
+        issueAxios.put(`/api/politicalIssues/decrementUpvote/${politicalIssueId}`)
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => console.log(err))
+    }
+
+    function decrementDownvote(politicalIssueId){
+        issueAxios.put(`/api/politicalIssues/decrementDownvote/${politicalIssueId}`)
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => console.log(err))
+    }
 
     function addIssue(newIssue){
         issueAxios.post('/api/politicalIssues', newIssue)
         .then((res) => {
-            setVoterState(voterState.concat(res.data))
+            setIssueState(issueState.concat(res.data))
         })
         .catch((err) => console.log(err))
     }
@@ -67,10 +88,13 @@ export default function IssueProvider(props){
             value = {{
                 getIssue,
                 issueArray,
-                voterState,
-                setVoterState,
+                issueState,
+                setIssueState,
                 getVoterIssues,
-                editVotes,
+                upvotes,
+                downvotes,
+                decrementUpvote,
+                decrementDownvote,
                 addIssue
             }}>
             {props.children}

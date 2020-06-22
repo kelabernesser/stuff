@@ -12,7 +12,8 @@ const voterSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    
 })
 
 voterSchema.pre("save", function(next){

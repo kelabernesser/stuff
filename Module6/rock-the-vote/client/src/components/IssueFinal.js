@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import Comment from "../components/Comment.js"
 import { IssueContext } from '../context/IssueProvider.js'
+import { UserContext } from '../context/UserProvider.js'
 
 
 export default function IssueFinal(props) {
@@ -15,21 +16,28 @@ export default function IssueFinal(props) {
     })
 
     const initInputs = {
-        textBody: ""
+        textBody: "",
+
     }
 
-    const { title, description, _id, upvotes } = props
+    const { title, description, _id } = props
     
+
 
     const [commentState, setCommentState] = useState([])
     const [inputs, setInputs] = useState(initInputs)
     const [commentBoolean, setCommentBoolean] = useState(false)
-    const [upvoteInputs, setUpvoteInputs] = useState(0)
-    const { editVotes, voterState} = useContext(IssueContext)
+    const [voteBoolean, setVoteBoolean] = useState()
+    const { upvotes, downvotes, decrementDownvote, decrementUpvote, issueArray } = useContext(IssueContext)
 
-    const { textBody } = inputs
+    let { textBody } = inputs
+
 
     
+
+    issueArray.sort((a, b) => (a.upvotes < b.upvotes) ? 1 : -1)
+    console.log(issueArray)
+
 
 
     function handleChange(e) {
@@ -43,6 +51,7 @@ export default function IssueFinal(props) {
     function handleSubmit(e) {
         e.preventDefault()
         addComment(inputs)
+
     }
 
 
@@ -56,7 +65,7 @@ export default function IssueFinal(props) {
 
                 })
                 .catch((err) => console.log(err))
-            
+
 
         }
     }
@@ -72,21 +81,57 @@ export default function IssueFinal(props) {
         setCommentBoolean((prev) => !prev)
     }
 
-    const popularityCounter = () => {
-        let updates = upvotes
-        editVotes(updates, _id)
+
+    function upvoteToggle() {
+        if (!voteBoolean) {
+            upvotes(props._id)
+
+            if (props.downvotes >= 0) {
+                decrementDownvote(props._id)
+            }
+            setVoteBoolean(true)
+        }
+        
     }
 
+    function downvoteToggle() {
+        if (voteBoolean) {
+            downvotes(props._id)
+
+            if (props.upvotes >= 0) {
+                decrementUpvote(props._id)
+            }
+            setVoteBoolean(false)
+
+        }
+
+
+        
+    }
     
+
+
+
+
+
+
+
+
+
+
+
 
     return (
         <div>
-            <button onClick = {popularityCounter}>UpVote</button>
-            <h1>{upvotes}</h1>
+
+            <button onClick={upvoteToggle}>UpVote</button>
+            <button onClick={downvoteToggle}>DownVote</button>
+            <h1>{props.upvotes}</h1>
+            <h1>{props.downvotes}</h1>
             <h1>{title}</h1>
             <h2>{description}</h2>
             <button onClick={commentToggle}>See Comments</button>
-            <button onClick = {commentSwitch}>Add Comment</button>
+            <button onClick={commentSwitch}>Add Comment</button>
             {commentBoolean ? (
                 <form onSubmit={handleSubmit}>
                     <input
