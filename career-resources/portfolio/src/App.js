@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import trivia from "./assets/trivia.png"
-import nameBadge from "./assets/nameBadge.png"
-import uglyThing from "./assets/uglyThing.png"
+
 import Footer from "./footer"
 
 import Header from "./header"
@@ -10,43 +8,37 @@ import Header from "./header"
 function App() {
 
   return (
-    <div className="App">
+    <div id="App">
       <Header/>
-      <div className="eachInfo">
+      <div id ="eachInfo">
         <h2 className="boxTitle">Trivia</h2>
-        <h3 className = "madWith">made with: React JS, CSS, HTML</h3>
+        <h3 className = "madeWith">made with: React JS, CSS, HTML, and deployed with Surge</h3>
         <p className = "project">A single page trivia application, testing the user's music knowledge. This app uses React Hooks to store and retrieve information and react-router to navigate.</p>
         <a href = "http://kelabernesser-trivia.surge.sh/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
         <a href = "https://github.com/kelabernesser/stuff/tree/master/Module4/very-useful-trivia"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
       </div>
 
-      <div className="details1">
-        <img src={trivia} alt="trivia" />
-      </div>
+      
 
       <div className="eachInfo1">
-        <h2 className="boxTitle">Name Badge</h2>
-        <h3 className = "madWith">made with: Vanilla JS, CSS, HTML</h3>
-        <p className = "project">Creating a Name Badge with the values managed by state</p>
-        <a href = "http://kelabernesser-namebadge.surge.sh/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
-        <a href = "https://github.com/kelabernesser/stuff/tree/master/Module3/name-badge"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
+        <h2 className="boxTitle">Poll-Talk</h2>
+        <h3 className = "madeWith">made with: React JS, Styled Components, Node.js, MongoDB, express, and deployed with Heroku </h3>
+        <p className = "project">A user authenticated website allowing each user to post a political issue as well as commenting, liking and disliking on their own political issues as well as other user's political issues.</p>
+        <a href = "https://poll-talk.herokuapp.com/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
+        <a href = "https://github.com/kelabernesser/stuff/tree/master/rock-the-vote"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
       </div>
 
-      <div className="details2">
-        <img src={nameBadge} alt="nameBadge" />
-      </div>
+      
 
       <div className="eachInfo2">
-        <h2 className="boxTitle">Single Page Applications</h2>
-        <h3 className = "madWith">made with: React, JS, CSS, HTML</h3>
-        <p className = "project">An app that allows the user to add, delete, and edit something of their choice. </p>
-        <a href = "http://kelabernesser-uglythings.surge.sh/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
-        <a href = "https://github.com/kelabernesser/stuff/tree/master/Module4/ugly-things"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
+        <h2 className="boxTitle">Topical Roulette </h2>
+        <h3 className = "madeWith">made with: React JS, Styled Components, Node.js, MongoDB, express, and deployed with Heroku </h3>
+        <p className = "project">An app that has user authentication, gives the user a random topic from a pre-created list upon login/signup. The user can then use that topic as a conversation starter to talk to other users.</p>
+        <a href = "https://topical-roulette-app.herokuapp.com/"><button className = "siteButton"><h3>Take a Look at the Site</h3></button></a>
+        <a href = "https://github.com/cameronrasmo/topical-twitter-repo"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
       </div>
 
-      <div className="details3">
-        <img src={uglyThing} alt="uglyThing" />
-      </div>
+      
 
       <div className="aboutMe">
         <img className = "picture-of-me" alt = "picture-of-me"/>

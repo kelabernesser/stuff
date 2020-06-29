@@ -4,12 +4,19 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const expressJwt = require('express-jwt')
 require('dotenv').config()
+//
+const path = require("path")
+const port = process.env.PORT || 6000;
 
 app.use(express.json())
 app.use(morgan('dev'))
 
+//sending static file requests to the client
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+
 mongoose.connect(
-    'mongodb://localhost:27017/voter-authentication',
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/voter-authentication',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -20,7 +27,7 @@ mongoose.connect(
 )
 
 app.use('/auth', require('./routes/authRouter.js'))
-app.use('/api', expressJwt({secret: process.env.SECRET}))
+app.use('/api', expressJwt({secret: process.env.SECRET || "hi maybe time yes"}))
 app.use('/auth/voter', require('./routes/authRouter.js'))
 app.use('/api/politicalIssues', require('./routes/politicalIssuesRouter.js'))
 app.use('/api/comment', require('./routes/commentRouter.js'))
@@ -33,6 +40,11 @@ app.use((err, req, res, next) => {
     return res.send({errMsg: err.message})
 })
 
-app.listen(6000, () => {
+//catchall route handler
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+app.listen(port, () => {
     console.log('Server is running on local port 6000')
 })
