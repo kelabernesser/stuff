@@ -3,8 +3,8 @@ import resume from "./assets/resume.pdf"
 
 function Footer(){
     return(
-        <footer>
-      <h2 className = "boxTitle">Contact</h2>
+        <footer id = "contact">
+      <h2 id = "boxTitle">Contact</h2>
       <div className = "iconBox">
           <img className = "icons" src = "https://static.thenounproject.com/png/143185-200.png" alt = "resume"/>
           <a className = "iconName" href = {resume}><h3>Resume</h3></a>
