@@ -46,6 +46,7 @@
   grid-row: 1/2;
   grid-column: 1/2;
   position: relative;
+  cursor: pointer;
   
 }
 .menu-image{
@@ -54,11 +55,7 @@
   position: absolute;
  
 }
-.active-icon{
-  width: 100px;
-  height: 90px;
-  position: relative;
-}
+
 
 .menu-pull{
   grid-column: 1/5;
