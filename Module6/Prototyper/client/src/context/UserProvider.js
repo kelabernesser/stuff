@@ -24,23 +24,24 @@ export default function UserProvider(props){
 
                 }))
             })
-            .catch(err => console.log(err.response.data.errMsg))
+            .catch(err => handleAuthErr(err.response.data.errMsg))
     }
 
     function login(credentials){
         axios.post('/auth/login', credentials)
         .then(res => {
-            // const { user, token } = res.data
-            // localStorage.setItem("token", token)
-            // localStorage.setItem("user", JSON.stringify(user))
-            // setUserState(prevUserState => ({
-            //     ...prevUserState,
-            //     user,
-            //     token
-            // }))
+            const { user, token } = res.data
+            localStorage.setItem("token", token)
+            localStorage.setItem("user", JSON.stringify(user))
+            setUserState(prevUserState => ({
+                ...prevUserState,
+                user,
+                token
+            }))
             console.log(res.data)
+            
         })
-        .catch(err => console.log(err))
+        .catch(err => handleAuthErr(err))
     }
 
     function logout(){

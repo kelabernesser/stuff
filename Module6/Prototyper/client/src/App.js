@@ -1,30 +1,37 @@
 import React, { useContext } from 'react';
-import { Switch, Route, Link} from 'react-router-dom'
-import './App.css';
-import { UserContext } from './context/UserProvider';
+import { Switch, Route, Redirect} from 'react-router-dom'
+import { UserContext } from './context/UserProvider.js';
 
 import Auth from './components/Auth.js'
 import Main from './components/Main.js'
-import Map from './components/Map.js'
+import Maps from './components/Map.js'
+import ProtectedRoute from './components/ProtectedRoute.js'
 
 function App() {
-  const {token} = useContext(UserContext)
+  const { token } = useContext(UserContext)
   return (
     <div className="App">
-     <Switch>
+      <Switch>
         <Route
           exact path = '/'
-          render={() => <Auth/>}
+          render = {() => token ? <Redirect to = "/main" /> : <Auth/>}
         />
-        <Route
+        <ProtectedRoute
           path = '/main'
-          render={() => <Main/>}
+          component = {Main}
+          redirectTo ='/'
+          token={token}
         />
-        <Route
-          path = '/map'
-          render={() => <Map/>}
+        <ProtectedRoute
+          path = '/maps'
+          component = {Maps}
+          redirectTo ='/'
+          token={token}
         />
-       </Switch> 
+        
+      </Switch>
+     
+     
     </div>
   );
 }
