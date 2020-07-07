@@ -1,6 +1,39 @@
-import React, { useContext, useState  } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthForm from './AuthForm.js'
-import { UserContext} from '../context/UserProvider.js'
+import { UserContext } from '../context/UserProvider.js'
+import styled from 'styled-components'
+
+const AuthPage = styled.div`
+
+    background-image: url("https://gritdaily.com/wp-content/uploads/2020/06/nicole-baster-6_y5Sww0-h4-unsplash-1-1280x768-1.jpg");
+    background-repeat: none;
+    background-size: cover;
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: overlay;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: -10px;
+    align-item: center;
+    justify-content: center;
+    
+    h1{
+        margin-left: 940px;
+        font-size: 50px;
+    }
+    
+    
+`
+const FormContainer = styled.div`
+    margin-left: 950px;
+    margin-bottom: 450px;
+    
+
+    & > p{
+        
+        color: white;
+    }
+`
 
 const initInputs = { username: "", password: "" }
 
@@ -9,6 +42,7 @@ export default function Auth() {
     const [toggle, setToggle] = useState(false)
 
     const { signup, login, errMsg, resetAuthErr } = useContext(UserContext)
+    
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -36,34 +70,41 @@ export default function Auth() {
 
     return (
         <div>
-           {!toggle ?
-                        <>
-                            <div>
-                                <AuthForm
-                                    handleChange={handleChange}
-                                    handleSubmit={handleSignup}
-                                    inputs={inputs}
-                                    btnText="Sign up"
-                                />
+            <AuthPage>
+                <h1>Prototype</h1>
+                
+                {!toggle ?
+                    <>
+                        <FormContainer>
+                            <AuthForm
+                                handleChange={handleChange}
+                                handleSubmit={handleSignup}
+                                inputs={inputs}
+                                btnText="Sign up"
+                                errMsg={errMsg}
+                            />
 
-                                <p onClick={toggleForm}>Already a member</p>
-                            </div>
-                        </>
-                        :
-                        <>
-                            <div>
-                                <AuthForm
-                                    handleChange={handleChange}
-                                    handleSubmit={handleLogin}
-                                    inputs={inputs}
-                                    btnText="Login"
-                                />
+                            <p style = {{marginLeft: "65px"}} onClick={toggleForm}>Already a member?</p>
+                        </FormContainer>
+                    </>
+                    :
+                    <>
+                        <FormContainer>
+                            <AuthForm
+                                handleChange={handleChange}
+                                handleSubmit={handleLogin}
+                                inputs={inputs}
+                                btnText="Login"
+                                errMsg={errMsg}
+                            />
 
-                                <p onClick={toggleForm}>Not a member?</p>
-                            </div>
-                        </>
+                            <p style = {{marginLeft: "80px"}} onClick={toggleForm}>Not a member?</p>
+                        </FormContainer>
+                    </>
 
-                    }
+                }
+                
+            </AuthPage>
         </div>
     )
 }

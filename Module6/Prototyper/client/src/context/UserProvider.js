@@ -14,15 +14,16 @@ export default function UserProvider(props){
     function signup(credentials) {
         axios.post('/auth/signup', credentials)
             .then(res => {
-                const { user, token } = res.data
-                localStorage.setItem("token", token)
-                localStorage.setItem("user", JSON.stringify(user))
-                setUserState(prevUserState => ({
-                    ...prevUserState,
-                    user,
-                    token,
+                // const { user, token } = res.data
+                // localStorage.setItem("token", token)
+                // localStorage.setItem("user", JSON.stringify(user))
+                // setUserState(prevUserState => ({
+                //     ...prevUserState,
+                //     user,
+                //     token,
 
-                }))
+                // }))
+                console.log(res.data)
             })
             .catch(err => handleAuthErr(err.response.data.errMsg))
     }

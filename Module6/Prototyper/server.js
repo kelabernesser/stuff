@@ -35,6 +35,6 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(6000, () => {
+app.listen(7000, () => {
     console.log("Server is running on local port 7000")
 })

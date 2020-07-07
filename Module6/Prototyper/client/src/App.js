@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
 import { Switch, Route, Redirect} from 'react-router-dom'
 import { UserContext } from './context/UserProvider.js';
-
+import Navbar from './components/NavBar.js'
 import Auth from './components/Auth.js'
 import Main from './components/Main.js'
 import Maps from './components/Map.js'
 import ProtectedRoute from './components/ProtectedRoute.js'
 
 function App() {
-  const { token } = useContext(UserContext)
+  const { token, logout } = useContext(UserContext)
   return (
     <div className="App">
+      {token && <Navbar logout = {logout}/>}
       <Switch>
         <Route
           exact path = '/'
