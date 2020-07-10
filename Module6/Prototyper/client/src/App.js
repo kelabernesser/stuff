@@ -6,12 +6,13 @@ import Auth from './components/Auth.js'
 import Main from './components/Main.js'
 import Maps from './components/Map.js'
 import ProtectedRoute from './components/ProtectedRoute.js'
+import styled from 'styled-components'
+
 
 function App() {
-  const { token, logout } = useContext(UserContext)
+  const { token} = useContext(UserContext)
   return (
     <div className="App">
-      {token && <Navbar logout = {logout}/>}
       <Switch>
         <Route
           exact path = '/'

@@ -6,19 +6,33 @@ const protestSchema = new Schema({
         type: String,
         required: true
     },
+
     description: {
         type: String,
         required: true
     },
+
+    when:{
+        type:String,
+        required: true
+    },
+
+    where:{
+        type:String,
+        required: true
+    },
+
     user:{
         type: Schema.Types.ObjectId,
         ref: "User",
         reqired: true
     },
+
     attending: {
         type: Number,
         default: 0
     },
+    
     userArray: {
         type: Array
     }

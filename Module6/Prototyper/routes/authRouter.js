@@ -52,4 +52,14 @@ authRouter.post('/login', (req, res, next) => {
     })
 })
 
+authRouter.get("/:userId", (req, res, next) => {
+    User.findOne({ _id: req.params.userId }, (err, user) => {
+        if (err) {
+            res.status(500);
+            return next(err);
+        }
+        res.status(200).send(user);
+    });
+});
+
 module.exports = authRouter

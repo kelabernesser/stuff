@@ -33,6 +33,22 @@ export default function ProtestProvider(props){
         .catch(err => console.log(err))
     }
 
+    function attending(protestId){
+        protestAxios.put(`/api/protests/attending/${protestId}`)
+        .then((res) => {
+            console.log(res.data)
+
+            setProtestState(prev => {
+                const foundIndex = prev.findIndex((issue) => issue._id === protestId )
+                const beginning = prev.slice(0, foundIndex )
+                const ending = prev.slice(foundIndex + 1)
+
+                return [...beginning, res.data, ...ending]
+            })
+        })
+        .catch((err) => console.log(err))
+    }
+
     
     return(
         <ProtestContext.Provider
@@ -40,6 +56,7 @@ export default function ProtestProvider(props){
                 protestState,
                 getProtests,
                 addProtest,
+                attending
             }}
         >
             {props.children}
