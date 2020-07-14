@@ -56,7 +56,8 @@ export default function AuthForm(props){
         errMsg,
         inputs:{
             username,
-            password
+            password,
+            imgUrl
         }
     } = props
 
@@ -79,6 +80,13 @@ export default function AuthForm(props){
                 name="password"
                 onChange={handleChange}
                 placeholder="Password"
+            />
+            <input
+                type="imgUrl"
+                value={imgUrl}
+                name="imgUrl"
+                onChange={handleChange}
+                placeholder="Profile Picture"
             />
             <button>{btnText}</button>
             </form>

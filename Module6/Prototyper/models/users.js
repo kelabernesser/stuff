@@ -12,7 +12,11 @@ const userSchema = new Schema({
     password:{
         type:String,
         required: true
-    }
+    },
+    imgUrl: {
+        type: String,
+        default: "",
+    },
 })
 
 userSchema.pre('save', function(next){

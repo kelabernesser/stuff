@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import CommentFinal from '../components/CommentFinal.js'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { ProtestContext } from '../context/ProtestProvider.js'
 import styled from 'styled-components'
+import defaultprofile from "../img/defaultProfile.png";
+import { UserContext } from '../context/UserProvider.js'
+
 
 const ProtestContainer = styled.div`
     border: 10px solid orange;
@@ -27,7 +31,14 @@ const ProtestContainer = styled.div`
     }
 
     .attending-button{
-        margin-left: 200px;
+        margin-left: 10px;
+    }
+    .delete-button{
+        margin-left: 10px;
+        background-color: red;
+    }
+    .directions-button{
+        margin-left: 60px;
     }
 
     
@@ -70,15 +81,29 @@ const ProtestContainer = styled.div`
         height: 25px;
     }
 
-    
-    
-    
-
-
+    .user-picture{
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+    }
 `
+const ProfilePicture = styled.div`
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: 20% 50%;
+    border-radius: 50%;
+    border: 1px solid #f2f2f225;
+    opacity: 1;
+    z-index: 1;
+
+    transition: 0.2s;
+    transition-timing-function: cubic-bezier(0, 0, 0.01, 1);
+    cursor: pointer;
+`;
 
 
-
+export const MapContext = React.createContext()
 
 const initInputs = {
     textBody: ""
@@ -95,8 +120,10 @@ export default function ProtestFinal(props) {
 
     })
 
-    const { title, description, when, where, _id, user: author } = props
-    const { attending } = useContext(ProtestContext)
+    const { title, description, when, where, _id, lat, lng, user: author } = props
+    const { attending, notAttending, deleteProtest } = useContext(ProtestContext)
+    const { user } = useContext(UserContext)
+    const { getProtests } = useContext(ProtestContext)
 
 
 
@@ -104,7 +131,7 @@ export default function ProtestFinal(props) {
     const [commentBoolean, setCommentBoolean] = useState(false)
     const [commentState, setCommentState] = useState([])
     const [userState, setUserState] = useState({
-        username : ""
+        username: ""
     })
 
     function handleChange(e) {
@@ -147,20 +174,27 @@ export default function ProtestFinal(props) {
     const commentSwitch = () => {
         setCommentBoolean((prev) => !prev)
     }
-    
+
 
     useEffect(() => {
         protestAxios
             .get(`/auth/${author}`)
             .then((res) =>
                 setUserState((prev) => ({
-                    username: res.data.username
+                    username: res.data.username,
+                    imgUrl: res.data.imgUrl
                 }))
-                
+
             )
             .catch((err) => console.log(err));
-            
+
     }, [])
+
+    useEffect(() => {
+        getProtests()
+    }, [])
+
+
 
     const { textBody } = inputs
 
@@ -171,11 +205,48 @@ export default function ProtestFinal(props) {
             <ProtestContainer>
                 <div className="attending-class">
                     <h4 className="attending-show">people attending : {props.attending}</h4>
+                    <div className="directions-button">
+                        <Link to={{
+                            pathname: '/maps',
+                            placeProps: {
+                                lat: props.lat,
+                                lng: props.lng
+                            }
+                        }}>Maps</Link>
+                    </div>
+
+
+
                     <button className="attending-button" onClick={() => attending(props._id)}>
-                        I'm attending
+                        I'm Attending!
                     </button>
+
+                    <button className="attending-button" onClick={() => notAttending(props._id)}>
+                        I'm Not Attending!
+                    </button>
+                    {user._id === author ? (
+                        <button
+                        onClick={() => deleteProtest(props._id)}
+                        className="delete-button"
+                        >
+                            Delete
+
+                        </button>
+                    ) : null}
+
                 </div>
-                <h1 className = "username">@{userState.username}</h1>
+                <ProfilePicture
+                    style={
+                        userState.imgUrl === ""
+                            ? {
+                                backgroundImage: `url(${defaultprofile})`,
+                            }
+                            : {
+                                backgroundImage: `url(${userState.imgUrl})`
+                            }
+                    }
+                />
+                <h1 className="username">@{userState.username}</h1>
                 <h1 className="title">{title}</h1>
                 <h2 className="description">{description}</h2>
                 <div className="specifics-class">
@@ -208,7 +279,8 @@ export default function ProtestFinal(props) {
                         key={comment._id}
                     />)}
             </ProtestContainer>
-            
+
+
 
 
         </div>

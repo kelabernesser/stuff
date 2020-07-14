@@ -51,6 +51,20 @@ protestRouter.post('/', (req, res, next) =>{
     })
 })
 
+//delete one
+protestRouter.delete("/:protestId", (req, res, next) => {
+    Protests.findOneAndDelete(
+      { _id: req.params.protestId, user: req.user._id },
+      (err, deletedProtest) => {
+        if(err){
+          res.status(500)
+          return next(err)
+        }
+        return res.status(200).send(`Successfully delete Protest: ${deletedProtest}`)
+      }
+    )
+  })
+
 //attending count
 protestRouter.put('/attending/:protestId', async(req, res, next) => {
     try{
@@ -64,7 +78,33 @@ protestRouter.put('/attending/:protestId', async(req, res, next) => {
             {_id: req.params.protestId},
             {
                 $inc: { attending: +1},
-                $push: { userArray: req.user._id}
+                $push: { userArray: req.user._id},
+                $pull: { notUserArray: req.user._id},
+
+            },
+            { new : true}
+        )
+        return res.status(200).send(updated)
+    } catch(err){
+        res.status(500)
+        return next(err)
+    }
+})
+
+protestRouter.put('/notAttending/:protestId', async(req, res, next) => {
+    try{
+        const protest = await Protests.findOne({_id: req.params.protestId})
+        if(protest.notUserArray.includes(req.user._id)){
+            res.status(403)
+            throw new Error("You're already attending!")
+        }
+
+        const updated = await Protests.findOneAndUpdate(
+            {_id: req.params.protestId},
+            {
+                $inc: { attending: -1},
+                $push: { notUserArray: req.user._id},
+                $pull: { userArray: req.user._id}
             },
             { new : true}
         )

@@ -21,6 +21,14 @@ const protestSchema = new Schema({
         type:String,
         required: true
     },
+    lat:{
+        type:Number,
+        required: true
+    },
+    lng:{
+        type:Number,
+        required: true
+    },
 
     user:{
         type: Schema.Types.ObjectId,
@@ -31,6 +39,9 @@ const protestSchema = new Schema({
     attending: {
         type: Number,
         default: 0
+    },
+    notUserArray: {
+        type: Array,
     },
     
     userArray: {
