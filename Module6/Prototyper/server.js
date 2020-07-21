@@ -10,8 +10,14 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
+const path = require("path")
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+const port = process.env.PORT || 7000;
+
+
 mongoose.connect(
-    'mongodb://localhost:27017/prototype-authentication',
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/prototype-authentication',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -22,7 +28,7 @@ mongoose.connect(
 )
 
 app.use('/auth', require('./routes/authRouter.js'))
-app.use('/api', expressJwt({secret: process.env.SECRET}))
+app.use('/api', expressJwt({secret: process.env.SECRET || "natural daydreams jasmin hand"}))
 app.use('/api/protests', require('./routes/protestRouter'))
 app.use('/api/comments', require('./routes/commentRouter'))
 
@@ -34,7 +40,10 @@ app.use((err, req, res, next) => {
     return res.send({errMsg: err.message})
 })
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
-app.listen(7000, () => {
-    console.log("Server is running on local port 7000")
+app.listen(port, () => {
+    console.log(`Server is running on local port ${port}`)
 })

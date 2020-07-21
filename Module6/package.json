@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+
   },
   "keywords": [],
   "author": "",
@@ -20,5 +23,8 @@
     "nodemon": "^2.0.4"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "",
+  "engines" : {
+    "node": "12.14.1"
+  }
 }
