@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 const CommentContainer = styled.div`
     border: 1px solid red;
@@ -16,11 +17,28 @@ const CommentContainer = styled.div`
 `
 
 export default function Comment(props){
+const [commenterState, setCommenterState] = useState({
+    username:""
+})
 const {textBody} = props
+
+useEffect(() => {
+    axios
+    .get(`/auth/${props.user}`)
+    .then((res) =>
+        setCommenterState((prev) => ({
+            username: res.data.username,
+        }))
+
+    )
+    .catch((err) => console.log(err));
+}, [])
+
+
 console.log(props.username)
     return(
         <CommentContainer>
-            <h2>@{props.username}</h2>
+            <h2>@{commenterState.username}</h2>
             <p>{textBody}</p>
         </CommentContainer>
     )

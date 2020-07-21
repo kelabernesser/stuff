@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react"
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/UserProvider'
 import styled from 'styled-components'
+import { ProtestContext } from "../context/ProtestProvider"
 
 const MenuContainer = styled.div`
 
@@ -57,11 +58,16 @@ const ActiveMenu = styled.div`
 
 export default function Navbar(props) {
     const { user, logout } = useContext(UserContext)
+    const {getProtests} = useContext(ProtestContext)
     const [menuState, setMenuState] = useState(false)
 
     const menuToggle = () => {
         setMenuState(prev => !prev)
     }
+
+    useEffect(() => {
+        getProtests()
+    }, [])
 
 
     // const { logout } = props
@@ -76,7 +82,6 @@ export default function Navbar(props) {
                         </div>
 
                             <Link className="link" to='/main'>Main</Link>
-                            <Link className="link" to='/maps'>Maps</Link>
                             <button onClick={logout}>Logout</button>
                         </ActiveMenu>
                     </div>

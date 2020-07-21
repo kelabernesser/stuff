@@ -1,25 +1,16 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React, {useContext, useEffect, useState} from 'react'
 import styled from 'styled-components'
 import defaultprofile from "../img/defaultProfile.png";
+import axios from 'axios'
 
+const AttendanceContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    padding-right: 50px;
 
-const FinalContainer = styled.div`
-
-    margin-top: 20px;
-    border: 5px solid red;
-    background-color: white;
-    width: 500px;
-    height: 150px;
-
-   .user-comment{
-       margin-top: 0px;
-       margin-bottom: -30px;
-       margin-left: 20px;
-   }     
-   .each-comment{
-       margin-left: 50px;
-   }
+    .username{
+        padding-left: 10px;
+    }
 `
 
 const ProfilePicture = styled.div`
@@ -37,18 +28,18 @@ const ProfilePicture = styled.div`
     cursor: pointer;
 `;
 
-export default function CommentFinal(props){
-    const [commenterState, setCommenterState] = useState({
+export default function UserAttendance(props){
+    const [attendeeState, setAttendeeState] = useState({
         username:"",
         imgUrl:""
     })
-    const { textBody } = props
+    console.log(props.user)
 
     useEffect(() => {
         axios
         .get(`/auth/${props.user}`)
         .then((res) =>
-            setCommenterState((prev) => ({
+            setAttendeeState((prev) => ({
                 username: res.data.username,
                 imgUrl: res.data.imgUrl
             }))
@@ -57,22 +48,22 @@ export default function CommentFinal(props){
         .catch((err) => console.log(err));
     }, [])
 
+
+console.log(props)
     return(
-        <FinalContainer className="final-comments">
+        <AttendanceContainer>
             <ProfilePicture
                     style={
-                        commenterState.imgUrl === ""
+                        attendeeState.imgUrl === ""
                             ? {
                                 backgroundImage: `url(${defaultprofile})`,
                             }
                             : {
-                                backgroundImage: `url(${commenterState.imgUrl})`
+                                backgroundImage: `url(${attendeeState.imgUrl})`
                             }
                     }
                 />
-            <h3 className="user-comment">@{commenterState.username}</h3>
-            <h4 className="each-comment">{textBody}</h4>
-        </FinalContainer>
+            <h4 className="username">@{attendeeState.username}</h4>
+        </AttendanceContainer>
     )
-
 }

@@ -1,83 +1,63 @@
 import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
+import Modal from 'react-modal'
+
 
 const FormContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-
     .add-icon{
         margin-left: 950px;
         margin-top: 10px;
         cursor: pointer;
     }
+    position: fixed;
+    z-index: 100;
+    
 
 `
 
 const FormBox = styled.div`
-    background-color:  rgb(166, 240, 18);
-    border: 10px solid #2e2e2e25;
-    width: 580px;
-    height: 350px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows:repeat(4, 1fr);
-    margin-top: 50px;
-    box-shadow: 20px 20px 20px 20px #2e2e2e25;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 
+    .description{
+        width: 100%,
+        height: 100px;
+    }
 
     input{
-        margin: 10px;
+        width: 500px;
+        height: 50px;
+        border-radius: 5px;
+        margin: 20px;
+    }
+
+    .specifics{
+        display: flex;
+    }
+
+    .coordinates{
+        display: flex;
+    }
+
+    button{
+        height: 50px;
+        width: 150px;
         border-radius: 5px;
         font-family: 'Rock Salt', cursive;
-
+        outline: none;
+        line-height: 1;
     }
 
-    .title{
-        grid-colum: 1/2;
-        grid-row: 1/2;
-        width: 300px;
-        height: 30px;
-        margin-left: 145px;
-    }
-    .when{
-        grid-column:1/2;
-        grid-row: 2/3;
-        width: 200px;
-        height: 20px;
-        margin-left: 30px;
-    }
-    .where{
-        grid-column: 2/3;
-        grid-row: 2/3;
-        width: 200px;
-        height: 20px;
-        margin-left: -180px;
-    }
-    .description{
-        grid-colum: 1/3;
-        grid-row: 3/4;
-        height: 50px;
-        width: 400px;
-        margin-left: 90px;
-    }
-    .check-icon{
-        grid-column: 1/2;
-        grid-row: 4/5;
-        width: 100px;
-        height: 50px;
-        margin-left: 265px;
-        cursor: pointer;
-        
-    }
     .done-icon{
-        grid-column: 2/3;
-        grid-row: 1/2;
-        margin-left: 10px;
-        cursor: pointer;
-        
-        
+        margin-left: 1250px;
     }
+
+
+    
+    
 
 `
 
@@ -86,13 +66,17 @@ const initInputs = {
     title: "",
     description: "",
     when: "",
-    where: ""
+    where: "",
+    lat: "",
+    lng: ""
 }
 
 export default function ProtestForm(props) {
     const [inputs, setInputs] = useState(initInputs)
     const [formBoolean, setFormBoolean] = useState(false)
-    const { addProtest, getProtests } = props
+
+    const { addProtest, getProtests} = props
+
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -108,68 +92,101 @@ export default function ProtestForm(props) {
         getProtests()
     }
 
-    const formToggle = () => {
-        setFormBoolean(prev => !prev)
-    }
-
     
+
+
     useEffect(() => {
         getProtests()
     }, [])
 
-    const { title, description, when, where } = inputs
+    const { title, description, when, where, lat, lng } = inputs
 
     return (
         <FormContainer>
-            {formBoolean ? (
-                
+            <Modal
+            isOpen={formBoolean} 
+            onRequestClose={() => setFormBoolean(false)}
+            style={
+                {
+                    overlay: {
+                        backgroundColor: 'grey'
+                    },
+                    content: {
+                        backgroundColor: 'orange',
+                        border: '10px solid grey'                    }
+                }
+            }
+            >
                 <form onSubmit={handleSubmit}>
                     <FormBox>
-                    <input
-                        type="text"
-                        name="title"
-                        value={title}
-                        onChange={handleChange}
-                        placeholder="Title"
-                        className="title"
-                    />
-                    <input
-                        type="text"
-                        name="description"
-                        value={description}
-                        onChange={handleChange}
-                        placeholder="Description"
-                        className="description"
-                    />
-                    <input
-                        type="text"
-                        name="when"
-                        value={when}
-                        onChange={handleChange}
-                        placeholder="When"
-                        className="when"
-                    />
-                    <input
-                        type="text"
-                        name="where"
-                        value={where}
-                        onChange={handleChange}
-                        placeholder="Where"
-                        className="where"
-                    />
-                    <div className="check-icon">
-                        <img style={{width:"50px"}}src = "https://freeiconshop.com/wp-content/uploads/edd/checkmark-circle-outline.png"/>
-                    </div>
-                    <div onClick={formToggle} className="done-icon">
-                        <img style={{ width: "50px" }} src="https://static.thenounproject.com/png/114046-200.png" />
-                    </div>
+                    <div onClick={() => setFormBoolean(false)} className="done-icon">
+                            <img style={{ width: "50px" }} src="https://static.thenounproject.com/png/114046-200.png" />
+                        </div>
+                        
+                        <input
+                            type="text"
+                            name="title"
+                            value={title}
+                            onChange={handleChange}
+                            placeholder="Title"
+                            className="title"
+                        />
+                        <textarea
+                            type="text"
+                            name="description"
+                            value={description}
+                            onChange={handleChange}
+                            placeholder="Description"
+                            className="description"
+                        />
+                        <div className="specifics">
+                        <input
+                            type="text"
+                            name="when"
+                            value={when}
+                            onChange={handleChange}
+                            placeholder="When"
+                            className="when"
+                        />
+                        <input
+                            type="text"
+                            name="where"
+                            value={where}
+                            onChange={handleChange}
+                            placeholder="Where"
+                            className="where"
+                        />
+                        </div>
+
+                        <div className="coordinates">
+                        <input
+                            type="number"
+                            name="lat"
+                            value={lat}
+                            onChange={handleChange}
+                            placeholder="Latitude"
+                            className="lat"
+                        />
+                        <input
+                            type="number"
+                            name="lng"
+                            value={lng}
+                            onChange={handleChange}
+                            placeholder="Longitude"
+                            className="lng"
+                        />
+                        </div>
+                        
+                        <button classname="submit-button">+</button>
                     </FormBox>
+
                 </form>
+                </Modal>
                 
 
-            ) : <div onClick={formToggle} className="add-icon">
-            <img style={{ width: "50px" }} src="https://img.icons8.com/all/500/add.png" />
-        </div>}
+                <div onClick={() => setFormBoolean(true)} className="add-icon">
+                    <img style={{ width: "50px" }} src="https://img.icons8.com/all/500/add.png" />
+                </div>
 
         </FormContainer>
     )

@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useContext } from 'react'
 import CommentFinal from '../components/CommentFinal.js'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import { ProtestContext } from '../context/ProtestProvider.js'
 import styled from 'styled-components'
 import defaultprofile from "../img/defaultProfile.png";
 import { UserContext } from '../context/UserProvider.js'
+import UserAttendance from '../components/UserAttendance.js'
 
+
+const ProtestWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 
 const ProtestContainer = styled.div`
+    margin-top: 25px;
     border: 10px solid orange;
     margin-right: 400px;
     margin-bottom: 20px;
@@ -23,6 +30,12 @@ const ProtestContainer = styled.div`
         border-radius: 5px;
         font-family: 'Rock Salt', cursive;
         outline: none;
+        line-height: 1;
+    }
+
+    .attendance-toggle{
+        display: flex;
+        flex-direction: column
     }
    
     .attending-class{
@@ -60,6 +73,12 @@ const ProtestContainer = styled.div`
         display: flex;
         flex-direction: row;
     }
+    .comment-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
     .final-comments{
         display: flex;
@@ -77,8 +96,15 @@ const ProtestContainer = styled.div`
     }
 
     .add-comment{
-        margin-left: 230px;
+        margin-top: 25px;
         height: 25px;
+    }
+
+    .comment-textarea{
+        margin-top: 25px;
+        border: 5px solid grey;
+        height: 100px;
+        width: 500px;
     }
 
     .user-picture{
@@ -95,13 +121,16 @@ const ProfilePicture = styled.div`
     border-radius: 50%;
     border: 1px solid #f2f2f225;
     opacity: 1;
-    z-index: 1;
+    z-index: 0;
 
     transition: 0.2s;
     transition-timing-function: cubic-bezier(0, 0, 0.01, 1);
     cursor: pointer;
 `;
-
+const AttendeeContainer = styled.div`
+    padding-top: 50px;
+    
+`
 
 export const MapContext = React.createContext()
 
@@ -120,16 +149,17 @@ export default function ProtestFinal(props) {
 
     })
 
-    const { title, description, when, where, _id, lat, lng, user: author } = props
-    const { attending, notAttending, deleteProtest } = useContext(ProtestContext)
-    const { user } = useContext(UserContext)
-    const { getProtests } = useContext(ProtestContext)
+
+    const { title, description, when, where, _id, user: author } = props
+    const { attending, notAttending, deleteProtest, getProtests } = useContext(ProtestContext)
+    const { user, token } = useContext(UserContext)
 
 
 
     const [inputs, setInputs] = useState(initInputs)
     const [commentBoolean, setCommentBoolean] = useState(false)
     const [commentState, setCommentState] = useState([])
+    const [attendeeBoolean, setAttendeeBoolean] = useState(false)
     const [userState, setUserState] = useState({
         username: ""
     })
@@ -177,6 +207,7 @@ export default function ProtestFinal(props) {
 
 
     useEffect(() => {
+        getProtests()
         protestAxios
             .get(`/auth/${author}`)
             .then((res) =>
@@ -190,29 +221,52 @@ export default function ProtestFinal(props) {
 
     }, [])
 
-    useEffect(() => {
+
+
+    const attendeesToggle = () => {
+        setAttendeeBoolean(prev => !prev)
+    }
+
+    const deleteFinal = () => {
+        deleteProtest(props._id)
         getProtests()
-    }, [])
-
-
+    }
 
     const { textBody } = inputs
 
 
-
     return (
-        <div>
+        <ProtestWrapper>
+
+            <AttendeeContainer>
+                {attendeeBoolean ? (
+                    <div>
+                        {props.userArray.map(user =>
+                            <UserAttendance
+                                user={user}
+                                key={user._id}
+                            />)}
+                    </div>
+                ) : null}
+
+            </AttendeeContainer>
             <ProtestContainer>
                 <div className="attending-class">
-                    <h4 className="attending-show">people attending : {props.attending}</h4>
+                    <div className="attendance-toggle" onClick={attendeesToggle}>
+                        See who's going!
+                        <img style={{ width: "60px" }} src="https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronLeft-512.png" />
+                    </div>
                     <div className="directions-button">
-                        <Link to={{
-                            pathname: '/maps',
-                            placeProps: {
-                                lat: props.lat,
-                                lng: props.lng
-                            }
-                        }}>Maps</Link>
+                        <Link
+                            to={{
+                                pathname:'/maps',
+                                state:{
+                                    lat:props.lat,
+                                    lng:props.lng
+                                }
+                            }}
+                            >Maps</Link>
+                        
                     </div>
 
 
@@ -226,8 +280,8 @@ export default function ProtestFinal(props) {
                     </button>
                     {user._id === author ? (
                         <button
-                        onClick={() => deleteProtest(props._id)}
-                        className="delete-button"
+                            onClick={deleteFinal}
+                            className="delete-button"
                         >
                             Delete
 
@@ -235,6 +289,7 @@ export default function ProtestFinal(props) {
                     ) : null}
 
                 </div>
+                <h3>Organized By:</h3>
                 <ProfilePicture
                     style={
                         userState.imgUrl === ""
@@ -257,20 +312,22 @@ export default function ProtestFinal(props) {
                     <button onClick={commentToggle} className="see-comments">See Comments</button>
                     <button onClick={commentSwitch} className="add-comments">Add Comment</button>
                 </div>
-
+                
                 {commentBoolean ? (
-                    <form onSubmit={handleSubmit}>
-                        <input
+                    <form className="comment-container" onSubmit={handleSubmit}>
+                        <textarea
                             type="text"
                             name="textBody"
                             value={textBody}
                             onChange={handleChange}
                             placeholder="Comment"
-                            className="comment-container"
+                            className="comment-textarea"
+                            
                         />
                         <button className="add-comment">+</button>
                     </form>
                 ) : null}
+               
 
                 {commentState.map(comment =>
                     <CommentFinal
@@ -279,10 +336,6 @@ export default function ProtestFinal(props) {
                         key={comment._id}
                     />)}
             </ProtestContainer>
-
-
-
-
-        </div>
+        </ProtestWrapper>
     )
 }
