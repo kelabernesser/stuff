@@ -29,7 +29,6 @@ useEffect(() => {
         setCommenterState((prev) => ({
             username: res.data.username,
         }))
-
     )
     .catch((err) => console.log(err));
 }, [])

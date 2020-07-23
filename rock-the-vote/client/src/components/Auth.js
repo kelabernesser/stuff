@@ -83,9 +83,10 @@ export default function Auth() {
                     <h1>Rock The Vote</h1>
                 </TitleContainer>
                 <FormContainer>
+                    <img src="https://static.thenounproject.com/png/16300-200.png" />
+
                     {!toggle ?
                         <>
-                            <img src="https://static.thenounproject.com/png/16300-200.png" />
                             <div>
                                 <AuthForm
                                     handleChange={handleChange}
@@ -100,7 +101,6 @@ export default function Auth() {
                         </>
                         :
                         <>
-                            <img src="https://static.thenounproject.com/png/16300-200.png" />
                             <div>
                                 <AuthForm
                                     handleChange={handleChange}

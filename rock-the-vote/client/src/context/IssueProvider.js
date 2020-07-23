@@ -14,7 +14,7 @@ issueAxios.interceptors.request.use(config => {
 export default function IssueProvider(props){
     const [issueArray, setIssueArray] = useState([])
     const [issueState, setIssueState] = useState([])
-    const [upvoteArray, setUpvoteArray] = useState([])
+    //const [upvoteArray, setUpvoteArray] = useState([])
 
     function getIssue(){
         issueAxios.get('/api/politicalIssues')
@@ -58,7 +58,13 @@ export default function IssueProvider(props){
     function downvotes(politicalIssueId){
         issueAxios.put(`/api/politicalIssues/downvote/${politicalIssueId}`)
         .then((res) => {
-            console.log(res.data)
+            csetIssueArray(prev => {
+                const foundIndex = prev.findIndex((issue) => issue._id === politicalIssueId )
+                const beginning = prev.slice(0, foundIndex )
+                const ending = prev.slice(foundIndex + 1)
+                
+                return[...beginning, res.data , ...ending]
+            })
         })
         .catch((err) => console.log(err))
     }

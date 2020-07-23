@@ -100,8 +100,7 @@ export default function IssueFinal(props) {
     })
 
     const initInputs = {
-        textBody: "",
-
+        textBody: ""
     }
 
     const { title, description, _id, user: author } = props
@@ -110,11 +109,10 @@ export default function IssueFinal(props) {
     const [commentState, setCommentState] = useState([])
     const [inputs, setInputs] = useState(initInputs)
     const [commentBoolean, setCommentBoolean] = useState(false)
-    const [voteBoolean, setVoteBoolean] = useState()
     const [issueUserState, setIssueUserState] = useState({
         username : ""
     })
-    const { upvotes, downvotes, getIssue, issueState } = useContext(IssueContext)
+    const { upvotes, downvotes } = useContext(IssueContext)
 
 
     let { textBody } = inputs
@@ -160,37 +158,6 @@ export default function IssueFinal(props) {
     const commentSwitch = () => {
         setCommentBoolean((prev) => !prev)
     }
-
-
-    // function upvoteToggle() {
-    //     if (!voteBoolean) {
-    //         upvotes(props._id)
-
-    //         if (props.downvotes >= 0) {
-    //             decrementDownvote(props._id)
-    //         }
-    //         setVoteBoolean(true)
-    //     }
-
-    // }
-
-    // function downvoteToggle() {
-    //     if (voteBoolean) {
-    //         downvotes(props._id)
-
-    //         if (props.upvotes >= 0) {
-    //             decrementUpvote(props._id)
-    //         }
-    //         setVoteBoolean(false)
-
-    //     }
-
-
-
-    // }
-
-
-
 
 
     useEffect(() => {

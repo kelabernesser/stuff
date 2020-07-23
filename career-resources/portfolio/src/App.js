@@ -5,6 +5,9 @@ import Footer from "./footer"
 
 import Header from "./header"
 
+import profilePic from "./assets/profilePic.JPG"
+
+
 function App() {
 
   return (
@@ -41,11 +44,12 @@ function App() {
       
 
       <div id="aboutMe">
-        <img className = "picture-of-me" alt = "picture-of-me"/>
+        <img className = "picture-of-me" src = {profilePic} alt = "picture-of-me"/>
         <div className = "aboutBox">
           <h2 id="boxTitle">About Me</h2>
-          <p className = "aboutPara">In my free time I'm usually outside with friends,<br/> either climbing or hiking.
-            If it's a rainy day than<br/> you can catch me  inside practicing on my guitar<br/> or watching movies.
+          <p className = "aboutPara">In my free time I'm usually spending it with friends. I spend a lot of time
+          trying to be outdoors, I climb, hike, bike, honestly whatever gets me outdoors!
+            
           </p>
         </div>
       </div>

@@ -109,7 +109,7 @@ export default function AuthForm(props){
                 onChange = {handleChange}
                 placeholder = "Password"/>
             <button>{ btnText }</button>
-        <p style = {{color: "white"}}>{ errMsg }</p>
+            <p style = {{color: "white"}}>{ errMsg }</p>
         </form>
         </FormBoxes>
     )

@@ -27,7 +27,6 @@ function Maps(props) {
     marginLeft: '-10px'
   };
 
-  const { protestState } = useContext(ProtestContext)
 
   console.log(props)
   // console.log(Maps.defaultProps.location.placeProps)

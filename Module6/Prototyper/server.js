@@ -28,7 +28,7 @@ mongoose.connect(
 )
 
 app.use('/auth', require('./routes/authRouter.js'))
-app.use('/api', expressJwt({secret: process.env.SECRET || "natural daydreams jasmin hand"}))
+app.use('/api', expressJwt({secret: process.env.SECRET, algorithms: ['HS256'] || "natural daydreams jasmin hand"}))
 app.use('/api/protests', require('./routes/protestRouter'))
 app.use('/api/comments', require('./routes/commentRouter'))
 

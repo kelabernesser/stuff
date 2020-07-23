@@ -152,7 +152,7 @@ export default function ProtestFinal(props) {
 
     const { title, description, when, where, _id, user: author } = props
     const { attending, notAttending, deleteProtest, getProtests } = useContext(ProtestContext)
-    const { user, token } = useContext(UserContext)
+    const { user } = useContext(UserContext)
 
 
 

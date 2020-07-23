@@ -57,7 +57,7 @@ const ActiveMenu = styled.div`
 
 
 export default function Navbar(props) {
-    const { user, logout } = useContext(UserContext)
+    const { logout } = useContext(UserContext)
     const {getProtests} = useContext(ProtestContext)
     const [menuState, setMenuState] = useState(false)
 

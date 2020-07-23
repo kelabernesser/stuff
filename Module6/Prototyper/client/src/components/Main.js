@@ -34,9 +34,8 @@ const ProtestContainer = styled.div`
     
 `
 Modal.setAppElement(`#root`)
-export default function Main(props) {
+export default function Main() {
     const { getProtests, protestState, addProtest } = useContext(ProtestContext)
-    const [modalIsOpen, setModalIsOpen] = useState(false)
 
     console.log(protestState)
     
