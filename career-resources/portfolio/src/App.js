@@ -13,6 +13,7 @@ function App() {
   return (
     <div id="App">
       <Header/>
+      <div className='project-boxes'>
       <div id ="eachInfo">
         <h2 id="boxTitle">Trivia</h2>
         <h3 className = "madeWith">made with: React JS, CSS, HTML, and deployed with Surge</h3>
@@ -41,7 +42,7 @@ function App() {
         <a href = "https://github.com/cameronrasmo/topical-twitter-repo"><button className = "siteButton"><h3>Take a Look at the Repo</h3></button></a>
       </div>
 
-      
+      </div> 
 
       <div id="aboutMe">
         <img className = "picture-of-me" src = {profilePic} alt = "picture-of-me"/>

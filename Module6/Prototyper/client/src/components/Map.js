@@ -19,6 +19,7 @@ const MapContainer = styled.div`
 `
 
 function Maps(props) {
+  require('dotenv').config()
 
 
   const mapStyles = {
@@ -28,8 +29,7 @@ function Maps(props) {
   };
 
 
-  console.log(props)
-  // console.log(Maps.defaultProps.location.placeProps)
+
 
   return (
     <PageContainer>
@@ -58,5 +58,5 @@ function Maps(props) {
 // }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCHza6eUiHFGjQGu5d7K-RXvS0c2-h0j44'
+  apiKey: process.env.REACT_APP_GOOGLE_API_KEY
 })(Maps);
