@@ -9,6 +9,7 @@ import { UserContext } from '../context/UserProvider.js'
 import UserAttendance from '../components/UserAttendance.js'
 
 
+
 const ProtestWrapper = styled.div`
     display: flex;
     flex-direction: row;

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kelabernesser/stuff/issues"
   },
-  "homepage": "https://github.com/kelabernesser/stuff#readme"
+  "homepage": "https://github.com/kelabernesser/stuff#readme",
+  "dependencies": {
+    "firebase-tools": "^8.6.0"
+  }
 }

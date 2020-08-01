@@ -2,6 +2,12 @@ import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import Modal from 'react-modal'
 
+const size = {
+    tablet : '768px'
+}
+const device = {
+    tablet : `(max-width:${size.tablet} )`
+}
 
 const FormContainer = styled.div`
     .add-icon{
@@ -11,6 +17,12 @@ const FormContainer = styled.div`
     }
     position: fixed;
     z-index: 100;
+
+    @media only screen and ${device.tablet}{
+        .add-icon{
+           margin-left: 300px; 
+        }
+    }
     
 
 `
@@ -53,6 +65,11 @@ const FormBox = styled.div`
 
     .done-icon{
         margin-left: 1250px;
+    }
+    @media only screen and ${device.tablet}{
+        input{
+            width: 300px;
+        }
     }
 
 

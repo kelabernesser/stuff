@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const size = {
+    iphone5: '320px',
+}
+const device = {
+    iphone5:`(max-width:${size.iphone5} )`,    
+}
+
 const FormStyle = styled.div`
     
 
@@ -42,6 +49,22 @@ const FormStyle = styled.div`
         margin-left: 30px;
         margin-bottom: -10px;
     }
+
+    @media only screen and ${device.iphone5}{
+        input{
+            width: 250px;
+
+        }
+        button{
+            margin-left: 50px;
+        }
+        p{
+            margin-left: 10px;
+        }
+
+    }
+
+    
 
     
 
