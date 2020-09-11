@@ -1,4 +1,13 @@
 body{
-    font-family: 'Rock Salt', cursive;
-    
+    font-family: 'Rock Salt', cursive; 
+}
+
+.search {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    z-index: 10
 }

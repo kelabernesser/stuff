@@ -82,6 +82,7 @@ export default function Navbar(props) {
                         </div>
 
                             <Link className="link" to='/main'>Main</Link>
+                            <Link className="link" to='/maps'>Maps</Link>
                             <button onClick={logout}>Logout</button>
                         </ActiveMenu>
                     </div>

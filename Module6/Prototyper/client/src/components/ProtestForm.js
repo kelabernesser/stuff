@@ -202,7 +202,7 @@ export default function ProtestForm(props) {
                 
 
                 <div onClick={() => setFormBoolean(true)} className="add-icon">
-                    <img style={{ width: "50px" }} src="https://img.icons8.com/all/500/add.png" />
+                    <img style={{ width: "50px" }} src="https://img.icons8.com/pastel-glyph/2x/plus.png" />
                 </div>
 
         </FormContainer>
