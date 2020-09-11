@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kelabernesser/stuff#readme",
   "dependencies": {
-    "firebase-tools": "^8.6.0"
+    "firebase-tools": "^8.6.0",
+    "node-fetch": "^2.6.1"
   }
 }
